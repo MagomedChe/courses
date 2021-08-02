@@ -1,0 +1,27 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "login": "admin",
+      "pass": 1,
+      "admin": true,
+      "token": "wkjdfaehfqoief"
+    }
+  ],
+  "courses": [
+    {
+      "title": "intocode,",
+      "address": "Трошева 7",
+      "phone": "9389048533",
+      "categoryId": "1",
+      "id": "1"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "title": "programming",
+      "image": "https://img.icons8.com/cotton/2x/laptop-coding.png"
+    }
+  ]
+}
