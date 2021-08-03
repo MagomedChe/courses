@@ -1,11 +1,13 @@
-import Header from './components/header/Header'
-import Courses from './components/courses/Courses'
+import Header from "./components/header/Header";
+import Courses from "./components/courses/Courses";
+import HomePage from "./components/HomePage";
 
 function App() {
   return (
     <div>
-      <Header/>
-      <Courses/>
+      <Header />
+      <HomePage />
+      <Courses />
     </div>
   );
 }
