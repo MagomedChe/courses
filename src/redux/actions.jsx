@@ -22,12 +22,12 @@ export const getCategories = () => {
       type: CATEGORIES_LOAD_START,
     });
     fetch(`http://localhost:3000/categories`)
-        .then((response) => response.json())
-        .then((json) => {
-          dispatch({
-            type: CATEGORIES_LOAD_SUCCESS,
-            payload: json,
-          });
+      .then((response) => response.json())
+      .then((json) => {
+        dispatch({
+          type: CATEGORIES_LOAD_SUCCESS,
+          payload: json,
         });
+      });
   };
 };
