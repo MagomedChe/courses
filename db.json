@@ -1,10 +1,10 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "login": "admin",
-      "pass": 1,
-      "admin": true,
+      "pass": "1",
+      "admin": "true",
       "token": "wkjdfaehfqoief"
     }
   ],
@@ -116,24 +116,24 @@
   ],
   "categories": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Програмирование",
-      "image": "https://img.icons8.com/cotton/2x/laptop-coding.png"
+      "image": "https://mir-s3-cdn-cf.behance.net/projects/max_808/69910487563309.Y3JvcCw4OTksNzAzLDAsMTA2.png"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Языковые курсы",
-      "image": "https://w7.pngwing.com/pngs/21/280/png-transparent-flag-of-the-united-kingdom-english-computer-icons-english-english-flag-text.png"
+      "image": "https://img5.lalafo.com/i/posters/original/b1/29/16/repetitor-angliiskogo-yazyka-na-domu-79374065_image-1.jpeg"
     },
     {
-      "id": 3,
-      "title": "Стилист",
-      "image": "https://e7.pngegg.com/pngimages/76/609/png-clipart-hairdresser-hairstyle-fashion-hair-face-perfume.png"
+      "id": "3",
+      "title": "Веб-Дизайнер",
+      "image": "https://sun9-37.userapi.com/c858532/v858532326/1e389c/54SiLpQzZq4.jpg"
     },
     {
-      "id": 4,
-      "title": "Массажист",
-      "image": "https://free-images.com/or/30a4/massage_relax_spa_body.jpg"
+      "id": "4",
+      "title": "Маркеттинг",
+      "image": "https://static.tildacdn.com/tild3839-3533-4566-b535-383964666363/Branding1.png"
     }
   ]
 }
