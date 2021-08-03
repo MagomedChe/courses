@@ -1,14 +1,17 @@
-import { COURSES_LOAD_START } from './type'
+import { COURSES_LOAD_START, COURSES_LOAD_SUCCESS } from './type'
 
 export const loadCourses = () =>{
   return(dispatch)=>{
     dispatch({
       type: COURSES_LOAD_START
     })
-    fetch(`db.json`)
+    fetch(`http://localhost:3000/courses`)
       .then(response => response.json())
       .then(json=>{
-        console.log(json)
+        dispatch({
+          type: COURSES_LOAD_SUCCESS,
+          payload: json
+        })
       })
   }
 }

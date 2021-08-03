@@ -19,5 +19,9 @@ export const coursesReducer =(state = initState, action)=>{
         courses: action.payload,
         loading: false
       }
+    default:
+      return {
+        ...state
+      }
   }
 }
