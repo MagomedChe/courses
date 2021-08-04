@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories, loadCourses } from "../../redux/actions";
 import style from "./courses.module.css";
 import { Link } from "react-router-dom";
+import { COURSE_ID } from '../../redux/type'
+import Course from './Course'
 
 function Courses(props) {
   const dispatch = useDispatch();
@@ -22,27 +24,7 @@ function Courses(props) {
       ) : (
         <div className={style.courses_box}>
           {courses.map((item) => {
-            return (
-              <div key={item.id} className={style.cours}>
-                <div className={style.cours_button}>
-                  <button>Избранное</button>
-                  <button>Сравнить</button>
-                </div>
-                <div className={style.cours_title}>{item.title}</div>
-                <div>Адресс: {item.address}</div>
-                <div>Телефон: {item.phone}</div>
-                <div>Стоимость: {item.price}p</div>
-                <div className={style.cours_callback}>
-                  <div className={style.cours_email}>
-                    Email: {item.callback[0].email}
-                  </div>
-                  <div>{item.callback[0].preview}...</div>
-                  <div className={style.cours_open}>
-                    <Link to={""}>Развернуть...</Link>
-                  </div>
-                </div>
-              </div>
-            );
+            return <Course item={item} key={item.id}/>
           })}
         </div>
       )}
