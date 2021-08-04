@@ -2,9 +2,11 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories, loadCourses } from "../../redux/actions";
 import style from "./courses.module.css";
-import { Link } from "react-router-dom";
+import {useHistory} from "react-router-dom";
+import {COURSES_SELECTED} from "../../redux/type";
 
 function Courses(props) {
+  const history = useHistory()
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadCourses());
@@ -13,6 +15,14 @@ function Courses(props) {
 
   const courses = useSelector((state) => state.courses.courses);
   const loading = useSelector((state) => state.courses.loading);
+
+  const handleClick = (id) =>{
+    dispatch({
+      type: COURSES_SELECTED,
+      payload: id,
+    })
+    history.push("/comments")
+  }
 
   return (
     <div className={style.courses}>
@@ -38,7 +48,7 @@ function Courses(props) {
                   </div>
                   <div>{item.callback[0].preview}...</div>
                   <div className={style.cours_open}>
-                    <Link to={""}>Развернуть...</Link>
+                    <div onClick={()=>handleClick(item.id)}>Развернуть...</div>
                   </div>
                 </div>
               </div>
