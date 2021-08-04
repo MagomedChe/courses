@@ -1,0 +1,26 @@
+.comments_page{
+    padding: 50px 20px;
+}
+.comments_page_main, .comments_page_comment{
+    background-color: #fff;
+    padding: 20px;
+    font-size: 40px;
+    font-weight: bolder;
+    color: #ff5f25;
+    width: 1000px;
+    margin: 30px auto 0;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+}
+.comments_page_comment{
+    color: white;
+    background-color: #ff5f25;
+}
+.comments_page_main span{
+    color: black;
+    font-size: 40px;
+}
+.comment_autor{
+    border-bottom: 2px solid #fff;
+    margin-bottom: 20px;
+}

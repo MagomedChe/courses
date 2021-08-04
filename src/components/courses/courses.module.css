@@ -1,5 +1,6 @@
 .courses {
   padding: 40px 0 70px 0;
+  margin-bottom: -50px;
   width: 100%;
   box-shadow: 1px 0 15px rgba(0, 0, 0, 0.3);
 }
@@ -72,10 +73,9 @@
   position: absolute;
   top: 150px;
   right: 10px;
-}
-.cours_open a {
   color: white;
+  cursor: pointer;
 }
-.cours_open a:hover {
+.cours_open:hover {
   color: black;
 }
