@@ -1,4 +1,3 @@
-import Courses from "./courses/Courses";
 import HomePage from "./HomePage";
 import "../style.css";
 import Header from "./header/Header";
