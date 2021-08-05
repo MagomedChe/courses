@@ -1,8 +1,19 @@
 import React from "react";
 import style from "./style.module.css";
 import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux'
+import { logout } from '../Authorization/authReducer'
 
 function Header(props) {
+  const dispatch = useDispatch();
+  const user = useSelector(state => state.auth.user);
+
+  const handleLogout = () => {
+    dispatch(logout())
+  }
+
+
+
   return (
     <div className={style.header}>
       <div className={style.header_line}>
@@ -31,13 +42,20 @@ function Header(props) {
         >
           Избранное
         </NavLink>
-        <NavLink
+        {!user.token ? ( <NavLink
           className={style.nav_item}
           to={"/auth"}
           activeClassName={style.active}
         >
           Войти
-        </NavLink>
+        </NavLink>) : (
+          <div
+            className={style.nav_item}
+            onClick={handleLogout}
+          >
+            Выйти
+          </div>
+        )}
       </div>
     </div>
   );

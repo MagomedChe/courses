@@ -1,7 +1,9 @@
 const initialState = {
-  token: JSON.parse(localStorage.getItem('admin')) || {},
-  loadingAdmin: false,
-  error: false
+  user: JSON.parse(localStorage.getItem('user')) || {},
+  loadingUsers: false,
+  auth: false,
+  loadingLogin: false,
+  error: false,
 }
 
 
@@ -10,25 +12,32 @@ export const auth = (state = initialState, action) => {
     case 'auth/start':
       return {
         ...state,
-        loadingAdmin: true
+        loadingLogin: true,
+        error: false,
+        auth: false,
       }
 
     case 'auth/success':
       return {
         ...state,
-        token: action.payload,
-        loadingAdmin: false
+        loadingLogin: false,
+        auth: true,
+        user: action.payload,
       }
 
     case 'auth/error':
       return {
         ...state,
-        error: true
+        error: true,
+        loadingLogin: false,
+        auth: false,
       }
 
-
-
-
+    case 'auth/out':
+      return {
+        ...state,
+        user: {}
+      }
 
     default:
       return state
@@ -45,8 +54,8 @@ export const authAdmin = (login, pass, history) => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        login: login,
-        pass: pass,
+        login,
+        pass,
       }),
     })
       .then(response => response.json())
@@ -62,5 +71,17 @@ export const authAdmin = (login, pass, history) => {
           })
         }
       })
+      .catch(() => {
+        dispatch({
+          type: 'auth/error',
+        });
+      });
+  }
+}
+
+export const logout = () => {
+  localStorage.removeItem('user');
+  return {
+    type: 'auth/out'
   }
 }

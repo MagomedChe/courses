@@ -17,6 +17,7 @@
     padding-left: 10px;
     border: none;
     border-bottom: 2px solid #ff5f25;
+    outline: none !important;
 
 }
 

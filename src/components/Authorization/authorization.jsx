@@ -2,16 +2,21 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { authAdmin } from './authReducer'
 import styles from './styles.module.css'
+import { useHistory } from 'react-router-dom'
 
 function Authorization (props) {
   const dispatch = useDispatch();
   const [login, setLogin] = useState("");
   const [pass, setPass] = useState("");
 
-  const error = useSelector(state => state.auth.error)
+  const history = useHistory();
+  const  error = useSelector(state => state.auth.error)
 
-  const handleLogin = () => {
-    dispatch(authAdmin(login,pass))
+
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    dispatch(authAdmin(login,pass, history))
   }
 
   return (
@@ -38,19 +43,15 @@ function Authorization (props) {
             />
           </div>
         </div>
-          {error && (
-            <div style={{fontSize:"30px"}}>
-              Неверный логин или пароль
-            </div>
-          )}
+        {error && <div>Неправильный логин или пароль</div>}
         <button onClick={handleLogin}>
-          <div className={styles.btn}>
+          <span className={styles.btn}>
             Войти
-          </div>
+          </span>
         </button>
       </div>
     </div>
   )
 }
-
+// git remote add upstream https://github.com/magaboy/courses.git
 export default Authorization
