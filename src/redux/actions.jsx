@@ -6,7 +6,7 @@ export const loadCourses = () => {
     dispatch({
       type: COURSES_LOAD_START,
     });
-    fetch(`http://localhost:3000/courses`)
+    fetch(`http://localhost:3001/courses`)
       .then((response) => response.json())
       .then((json) => {
         dispatch({
@@ -21,7 +21,7 @@ export const getCategories = () => {
     dispatch({
       type: CATEGORIES_LOAD_START,
     });
-    fetch(`http://localhost:3000/categories`)
+    fetch(`http://localhost:3001/categories`)
       .then((response) => response.json())
       .then((json) => {
         dispatch({
