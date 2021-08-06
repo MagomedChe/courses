@@ -1,4 +1,4 @@
-import { COURSES_LOAD_START } from "./type";
+import { ADDED_FAVORITE, COURSES_LOAD_START, DELETED_FAVORITE } from './type'
 import { COURSES_LOAD_SUCCESS } from "./type";
 import { COURSES_SELECTED } from "./type";
 
@@ -35,6 +35,7 @@ export const coursesReducer = (state = initState, action) => {
       };
     case COURSES_LOAD_SUCCESS:
       return {
+        ...state,
         courses: action.payload,
         loading: false,
       };
@@ -53,3 +54,4 @@ export const coursesReducer = (state = initState, action) => {
       };
   }
 };
+

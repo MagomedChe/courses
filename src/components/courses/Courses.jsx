@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories, getComments, loadCourses } from "../../redux/actions";
 import style from "./courses.module.css";
