@@ -4,16 +4,34 @@ import { COURSES_SELECTED } from "./type";
 
 const initState = {
   courses: [],
+  comments: [],
+  commentsLoad: false,
   loading: false,
-  coursesSelected: [],
+  coursesSelected: "",
+  coursesSelectedLoad: true,
 };
-
 export const coursesReducer = (state = initState, action) => {
   switch (action.type) {
     case COURSES_LOAD_START:
       return {
         ...state,
         loading: true,
+      };
+    case "comment/load/start":
+      return {
+        ...state,
+        commentsLoad: true,
+      };
+    case "comment/load/success":
+      return {
+        ...state,
+        comments: action.payload,
+        commentsLoad: false,
+      };
+    case "add/new/comment":
+      return {
+        ...state,
+        comments: [...state.comments, action.payload],
       };
     case COURSES_LOAD_SUCCESS:
       return {
@@ -23,8 +41,11 @@ export const coursesReducer = (state = initState, action) => {
     case COURSES_SELECTED:
       return {
         ...state,
-        coursesSelected: state.courses.filter((item)=> item.id === action.payload)
-      }
+        coursesSelected: state.courses.find(
+          (item) => item.id === action.payload
+        ),
+        coursesSelectedLoad: false,
+      };
 
     default:
       return {

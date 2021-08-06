@@ -1,0 +1,31 @@
+.comment_add_panel {
+  margin: 20px auto 0;
+  border-top: 2px solid #000;
+  padding: 10px 0;
+}
+.comment_add_panel input {
+  display: block;
+  width: 70%;
+  margin: 0 auto 10px;
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 20px;
+  border: none;
+  outline: none !important;
+  border-bottom: 2px solid #ff5f25;
+}
+.comment_add_panel div {
+  display: block;
+  margin: auto;
+  font-size: 25px;
+  width: 120px;
+  text-align: center;
+  padding: 5px 10px;
+  background-color: #ff5f25;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.comment_add_panel div:hover {
+  color: black;
+}
