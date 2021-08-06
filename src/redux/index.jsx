@@ -13,7 +13,7 @@ const logger = createLogger({
 const rootReducer = combineReducers({
   courses: coursesReducer,
   categories: categoriesReducer,
-  favorites: favoritesReducer
+  favorites: favoritesReducer,
   auth: auth
 });
 

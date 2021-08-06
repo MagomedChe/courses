@@ -1,7 +1,9 @@
 .courses {
-  padding: 40px 0 70px 0;
+  padding: 40px 0 0 0;
   width: 100%;
   box-shadow: 1px 0 15px rgba(0, 0, 0, 0.3);
+  min-height: 90vh;
+  margin-bottom: -50px;
 }
 .courses_title {
   margin-bottom: -20px;

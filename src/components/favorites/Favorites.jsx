@@ -11,7 +11,7 @@ function Favorites(props) {
     dispatch(getCategories());
   }, [dispatch]);
 
-  const favorites = useSelector((state) => state.courses.favorites);
+  const favorites = useSelector((state) => state.favorites.items);
   const loading = useSelector((state) => state.courses.loading);
 
   return (
@@ -30,4 +30,4 @@ function Favorites(props) {
   );
 }
 
-export default FavoriteCourse;
+export default Favorites;
