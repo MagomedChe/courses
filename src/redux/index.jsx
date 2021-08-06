@@ -14,7 +14,7 @@ const rootReducer = combineReducers({
   courses: coursesReducer,
   categories: categoriesReducer,
   favorites: favoritesReducer,
-  auth: auth
+  auth: auth,
 });
 
 let preloadedState;

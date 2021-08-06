@@ -1,12 +1,14 @@
 import React  from 'react'
 import style from './courses.module.css'
-import { Link } from 'react-router-dom'
-import { ADDED_FAVORITE } from '../../redux/type'
+import { Link, useHistory } from 'react-router-dom'
+import { ADDED_FAVORITE, COURSES_SELECTED } from '../../redux/type'
 import { useDispatch, useSelector } from 'react-redux'
+import { getComments } from '../../redux/actions'
 
 function Course ({ item }) {
   const favorites = useSelector(state => state.favorites.items);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleFavorites=(item)=>{
       dispatch({
@@ -14,25 +16,25 @@ function Course ({ item }) {
         payload: item
       })
   }
+  const handleClick = (id) => {
+    dispatch({
+      type: COURSES_SELECTED,
+      payload: id,
+    });
+    dispatch(getComments(id));
+    history.push("/comments");
+  };
 
   return (
     <div key={item.id} className={style.cours}>
-      <div className={style.cours_button}>
-        <button disabled={favorites.find(element=> element.id === item.id)} onClick={()=>handleFavorites(item)}>{favorites.find(element=> element.id === item.id) ? "В Избранном": "В избранное"}</button>
-        <button>Сравнить</button>
-      </div>
       <div className={style.cours_title}>{item.title}</div>
       <div>Адресс: {item.address}</div>
       <div>Телефон: {item.phone}</div>
       <div>Стоимость: {item.price}p</div>
-      <div className={style.cours_callback}>
-        <div className={style.cours_email}>
-          Email: {item.callback[0].email}
-        </div>
-        <div>{item.callback[0].preview}...</div>
-        <div className={style.cours_open}>
-          <Link to={""}>Развернуть...</Link>
-        </div>
+      <div className={style.cours_button}>
+        <div onClick={()=>handleFavorites(item)}>{favorites.find(elment=>elment.id ===item.id)?'В избранном': 'В избранное'}</div>
+        <div>Сравнить</div>
+        <div onClick={() => handleClick(item.id)}>Отзывы</div>
       </div>
     </div>
   )

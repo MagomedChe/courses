@@ -4,20 +4,10 @@ import { getCategories, getComments, loadCourses } from "../../redux/actions";
 import style from "./courses.module.css";
 import { COURSES_SELECTED } from "../../redux/type";
 import { useHistory } from "react-router-dom";
+import Course from './Course'
 
 function Courses(props) {
   const dispatch = useDispatch();
-  const history = useHistory();
-
-  const handleClick = (id) => {
-    dispatch({
-      type: COURSES_SELECTED,
-      payload: id,
-    });
-    dispatch(getComments(id));
-    history.push("/comments");
-  };
-
   useEffect(() => {
     dispatch(loadCourses());
     dispatch(getCategories());
@@ -35,17 +25,7 @@ function Courses(props) {
         <div className={style.courses_box}>
           {courses.map((item) => {
             return (
-              <div key={item.id} className={style.cours}>
-                <div className={style.cours_title}>{item.title}</div>
-                <div>Адресс: {item.address}</div>
-                <div>Телефон: {item.phone}</div>
-                <div>Стоимость: {item.price}p</div>
-                <div className={style.cours_button}>
-                  <div>Избранное</div>
-                  <div>Сравнить</div>
-                  <div onClick={() => handleClick(item.id)}>Отзывы</div>
-                </div>
-              </div>
+              <Course item={item}/>
             );
           })}
         </div>
