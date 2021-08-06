@@ -17,8 +17,8 @@ function App() {
           <HomePage />
         </Route>
         <Route path={"/comments"}>
-          <Comments/>
-        </Route>
+          <Comments />
+          </Route>
         <Route path={"/auth"}>
           <Authorization/>
         </Route>
