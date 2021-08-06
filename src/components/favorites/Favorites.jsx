@@ -13,6 +13,7 @@ function Favorites(props) {
 
   const favorites = useSelector((state) => state.favorites.items);
   const loading = useSelector((state) => state.courses.loading);
+  console.log(favorites)
 
   return (
     <div className={style.courses}>

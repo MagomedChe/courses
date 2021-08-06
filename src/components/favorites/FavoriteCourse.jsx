@@ -27,15 +27,6 @@ function FavoriteCourse ({ item }) {
           <div>Адресс: {item.address}</div>
           <div>Телефон: {item.phone}</div>
           <div>Стоимость: {item.price}p</div>
-          <div className={style.cours_callback}>
-            <div className={style.cours_email}>
-              Email: {item.callback[0].email}
-            </div>
-            <div>{item.callback[0].preview}...</div>
-            <div className={style.cours_open}>
-              <Link to={""}>Развернуть...</Link>
-            </div>
-          </div>
         </div>
       ):''}
     </div>
