@@ -2,27 +2,27 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories, loadCourses } from "../../redux/actions";
 import style from "./courses.module.css";
-import Course from './Course'
+import FavoriteCourse from './FavoriteCourse'
 
-function Courses(props) {
+function Favorites(props) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadCourses());
     dispatch(getCategories());
   }, [dispatch]);
 
-  const courses = useSelector((state) => state.courses.courses);
+  const favorites = useSelector((state) => state.courses.favorites);
   const loading = useSelector((state) => state.courses.loading);
 
   return (
     <div className={style.courses}>
-      <div className={style.courses_title}>Список курсов</div>
+      <div className={style.courses_title}>Избранное</div>
       {loading ? (
         <div className={style.cours_loading}>Загрузка...</div>
       ) : (
         <div className={style.courses_box}>
-          {courses.map((item) => {
-            return <Course item={item} key={item.id}/>
+          {favorites.map((item) => {
+            return <FavoriteCourse item={item} key={item.id}/>
           })}
         </div>
       )}
@@ -30,4 +30,4 @@ function Courses(props) {
   );
 }
 
-export default Courses;
+export default FavoriteCourse;

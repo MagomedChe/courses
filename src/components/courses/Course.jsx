@@ -1,26 +1,24 @@
 import React, { useState } from 'react'
 import style from './courses.module.css'
 import { Link } from 'react-router-dom'
-import { ADDED_FAVORITE, DELETED_FAVORITE } from '../../redux/type'
-import { useDispatch } from 'react-redux'
+import { ADDED_FAVORITE } from '../../redux/type'
+import { useDispatch, useSelector } from 'react-redux'
 
 function Course ({ item }) {
-  const [favorite, setFavorite]= useState(false)
+  const favorites = useSelector(state => state.favorites.items);
   const dispatch = useDispatch();
 
-  const handleFavorites=(id)=>{
-    setFavorite(!favorite)
+  const handleFavorites=(item)=>{
       dispatch({
         type: ADDED_FAVORITE,
-        payload: id
+        payload: item
       })
   }
-
 
   return (
     <div key={item.id} className={style.cours}>
       <div className={style.cours_button}>
-        <button disabled={favorite} onClick={()=>handleFavorites(item.id)}>{favorite? "В Избранном": "В избранное"}</button>
+        <button disabled={favorites.find(element=> element.id === item.id)} onClick={()=>handleFavorites(item)}>{favorites.find(element=> element.id === item.id) ? "В Избранном": "В избранное"}</button>
         <button>Сравнить</button>
       </div>
       <div className={style.cours_title}>{item.title}</div>
