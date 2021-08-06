@@ -1,4 +1,4 @@
-import { ADDED_FAVORITE } from './type'
+import { ADDED_FAVORITE, DELETED_FAVORITE } from './type'
 
 const initState = {
   items: [],
@@ -12,6 +12,12 @@ export const favoritesReducer =(state = initState, action)=>{
         ...state,
         items: [...state.items , action.payload]
       };
+    case DELETED_FAVORITE:
+      console.log(action.payload)
+      return {
+        ...state,
+        items: state.items.filter((item)=> item.id !== action.payload)
+      }
     default:
       return {
         ...state

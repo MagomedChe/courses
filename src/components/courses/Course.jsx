@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React  from 'react'
 import style from './courses.module.css'
 import { Link } from 'react-router-dom'
 import { ADDED_FAVORITE } from '../../redux/type'

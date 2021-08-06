@@ -17,13 +17,14 @@ function Courses(props) {
   const courses = useSelector((state) => state.courses.courses);
   const loading = useSelector((state) => state.courses.loading);
 
-  const handleClick = (id) =>{
-    dispatch({
-      type: COURSES_SELECTED,
-      payload: id,
-    })
-    history.push("/comments")
-  }
+  // const handleClick = (id) =>{
+  //   dispatch({
+  //     type: COURSES_SELECTED,
+  //     payload: id,
+  //   })
+  //   history.push("/comments")
+  // }
+
 
   return (
     <div className={style.courses}>
