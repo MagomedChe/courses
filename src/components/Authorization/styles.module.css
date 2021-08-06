@@ -1,8 +1,9 @@
 .blockAuth {
     position: relative;
     top: 100px;
-    margin-bottom: 100px;
     text-align: center;
+    margin: auto;
+    min-height: 90vh;
 }
 
 .authTitle {

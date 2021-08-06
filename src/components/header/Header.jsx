@@ -2,15 +2,17 @@ import React from "react";
 import style from "./style.module.css";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
-import { logout } from '../Authorization/authReducer'
+import PrimarySearchAppBar from '../Authorization/LoginProfile'
+// import { logout } from '../../redux/authReducer'
+
 
 function Header(props) {
   const dispatch = useDispatch();
   const user = useSelector(state => state.auth.user);
 
-  const handleLogout = () => {
-    dispatch(logout())
-  }
+  // const handleLogout = () => {
+  //   dispatch(logout())
+  // }
 
 
 
@@ -49,12 +51,13 @@ function Header(props) {
         >
           Войти
         </NavLink>) : (
-          <div
-            className={style.nav_item}
-            onClick={handleLogout}
-          >
-            Выйти
-          </div>
+          <PrimarySearchAppBar/>
+          // <div
+          //   className={style.nav_item}
+          //   onClick={handleLogout}
+          // >
+          //   Выйти
+          // </div>
         )}
       </div>
     </div>

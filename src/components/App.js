@@ -5,7 +5,7 @@ import React from "react";
 import Footer from "./footer/Footer";
 import { Route, Switch } from 'react-router-dom'
 import Comments from "./comments/Comments";
-import Authorization from './Authorization/authorization'
+import Authorization from './Authorization'
 
 function App() {
   return (

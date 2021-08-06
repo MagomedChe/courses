@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { authAdmin } from './authReducer'
 import styles from './styles.module.css'
 import { useHistory } from 'react-router-dom'
+import { authAdmin } from '../../redux/authReducer'
 
 function Authorization (props) {
   const dispatch = useDispatch();
@@ -45,13 +45,10 @@ function Authorization (props) {
         </div>
         {error && <div>Неправильный логин или пароль</div>}
         <button onClick={handleLogin}>
-          <span className={styles.btn}>
             Войти
-          </span>
         </button>
       </div>
     </div>
   )
 }
-// git remote add upstream https://github.com/magaboy/courses.git
 export default Authorization
