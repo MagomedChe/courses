@@ -2,6 +2,7 @@ import { applyMiddleware, combineReducers, createStore } from "redux";
 import thunk from "redux-thunk";
 import { coursesReducer } from "./coursesReducer";
 import { categoriesReducer } from "./categoriesReducer";
+import { favoritesReducer } from './favoritesReducer'
 import { auth } from '../components/Authorization/authReducer'
 const { createLogger } = require("redux-logger");
 const logger = createLogger({
@@ -12,7 +13,20 @@ const logger = createLogger({
 const rootReducer = combineReducers({
   courses: coursesReducer,
   categories: categoriesReducer,
+  favorites: favoritesReducer
   auth: auth
 });
 
-export const store = createStore(rootReducer, applyMiddleware(thunk, logger));
+let preloadedState;
+
+if(localStorage.getItem('favorites') !== null) {
+  preloadedState = {
+    favorites: JSON.parse(localStorage.getItem('favorites'))
+  }
+}
+
+export const store = createStore(rootReducer, preloadedState, applyMiddleware(thunk, logger));
+
+store.subscribe(() => {
+  localStorage.setItem('favorites', JSON.stringify(store.getState().favorites))
+})
