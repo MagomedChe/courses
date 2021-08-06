@@ -3,7 +3,7 @@ import thunk from "redux-thunk";
 import { coursesReducer } from "./coursesReducer";
 import { categoriesReducer } from "./categoriesReducer";
 import { favoritesReducer } from './favoritesReducer'
-
+import { auth } from '../components/Authorization/authReducer'
 const { createLogger } = require("redux-logger");
 const logger = createLogger({
   diff: true,
@@ -14,6 +14,7 @@ const rootReducer = combineReducers({
   courses: coursesReducer,
   categories: categoriesReducer,
   favorites: favoritesReducer
+  auth: auth
 });
 
 let preloadedState;

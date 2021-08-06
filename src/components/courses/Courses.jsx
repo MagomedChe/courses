@@ -3,8 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCategories, loadCourses } from "../../redux/actions";
 import style from "./courses.module.css";
 import Course from './Course'
+import {useHistory} from "react-router-dom";
+import {COURSES_SELECTED} from "../../redux/type";
 
 function Courses(props) {
+  const history = useHistory()
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadCourses());
@@ -13,6 +16,14 @@ function Courses(props) {
 
   const courses = useSelector((state) => state.courses.courses);
   const loading = useSelector((state) => state.courses.loading);
+
+  const handleClick = (id) =>{
+    dispatch({
+      type: COURSES_SELECTED,
+      payload: id,
+    })
+    history.push("/comments")
+  }
 
   return (
     <div className={style.courses}>
