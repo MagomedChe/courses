@@ -1,6 +1,6 @@
 import React  from 'react'
 import style from './courses.module.css'
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { ADDED_FAVORITE, COURSES_SELECTED } from '../../redux/type'
 import { useDispatch, useSelector } from 'react-redux'
 import { getComments } from '../../redux/actions'
