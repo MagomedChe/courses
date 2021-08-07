@@ -1,26 +1,32 @@
-.comments_page{
-    padding: 50px 20px;
+.comments_page {
+  font-size: 35px;
+  padding: 100px 0;
+  font-weight: bold;
+  margin-bottom: -50px;
+  min-height: 90vh;
+  background-image: url("https://infobiznes.verivel.ru/wp-content/uploads/2019/06/fon-sajta-po-zarabotku-icon-pattern-gray.png");
 }
-.comments_page_main, .comments_page_comment{
-    background-color: #fff;
-    padding: 20px;
-    font-size: 40px;
-    font-weight: bolder;
-    color: #ff5f25;
-    width: 1000px;
-    margin: 30px auto 0;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.7);
-    border-radius: 5px;
+.comments_page_courses,
+.comment {
+  width: 800px;
+  padding: 25px;
+  background-color: white;
+  margin: auto;
+  box-shadow: 1px 0 15px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  color: #ff5f25;
 }
-.comments_page_comment{
-    color: white;
-    background-color: #ff5f25;
+.comments_page_courses span {
+  font-weight: bold;
+  font-size: 35px;
+  color: black;
 }
-.comments_page_main span{
-    color: black;
-    font-size: 40px;
+.comment {
+  color: black;
 }
-.comment_autor{
-    border-bottom: 2px solid #fff;
-    margin-bottom: 20px;
+.comment_email {
+  color: black;
+  text-align: center;
+  border-bottom: 2px solid #ff5f25;
+  margin-bottom: 10px;
 }

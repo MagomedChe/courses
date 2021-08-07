@@ -1,6 +1,5 @@
 import React from "react";
-import { alpha, makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
+import { makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 
@@ -53,7 +52,7 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem>
+      <MenuItem onClick={handleMenuClose}>
         <Index/>
       </MenuItem>
       <MenuItem onClick={handleLogout}>Выйти</MenuItem>

@@ -1,17 +1,16 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { NavLink } from 'react-router-dom'
 
 function AddCourses (props) {
-  const dispatch = useDispatch();
 
-  const handleAdd = () => {
-    dispatch(AddCours())
-  }
+
 
   return (
-    <div onClick={handleAdd}>
+    <NavLink to={"/addCourse"}>
+      <div>
         Добавить курс
-    </div>
+      </div>
+    </NavLink>
   )
 }
 
