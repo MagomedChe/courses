@@ -49,12 +49,6 @@ function Header(props) {
           Войти
         </NavLink>) : (
           <PrimarySearchAppBar/>
-          // <div
-          //   className={style.nav_item}
-          //   onClick={handleLogout}
-          // >
-          //   Выйти
-          // </div>
         )}
       </div>
     </div>
