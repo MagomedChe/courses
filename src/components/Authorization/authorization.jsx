@@ -20,9 +20,9 @@ function Authorization (props) {
   }
 
   return (
-    <div>
+    <div className={styles.auth_page}>
       <div className={styles.blockAuth}>
-        <div className={styles.authTitle}>
+        <div className={styles.auth_page_title}>
           Авторизация
         </div>
         <div className={styles.authForm}>
@@ -43,15 +43,12 @@ function Authorization (props) {
             />
           </div>
         </div>
-        {error && <div>Неправильный логин или пароль</div>}
-        <button onClick={handleLogin}>
-          <span className={styles.btn}>
+        {error && <div className={styles.auth_error}>Неправильный логин или пароль</div>}
+        <div className={styles.button_auth} onClick={handleLogin}>
             Войти
-          </span>
-        </button>
+        </div>
       </div>
     </div>
   )
 }
-// git remote add upstream https://github.com/magaboy/courses.git
 export default Authorization

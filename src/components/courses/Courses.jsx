@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { getCategories, getComments, loadCourses } from "../../redux/actions";
+import { getCategories, loadCourses } from "../../redux/actions";
 import style from "./courses.module.css";
-import { COURSES_SELECTED } from "../../redux/type";
-import { useHistory } from "react-router-dom";
 import Course from './Course'
 
 function Courses(props) {
