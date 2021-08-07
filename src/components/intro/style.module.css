@@ -1,0 +1,20 @@
+.intro {
+  padding: 20px 0;
+  height: 800px;
+  background-color: #5879c0;
+  background-image: url("https://catherineasquithgallery.com/uploads/posts/2021-03/1614839916_81-p-fon-dlya-shkolnogo-saita-120.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  color: white;
+}
+.intro_title {
+  font-size: 150px;
+  text-align: center;
+  padding-top: 100px;
+  font-weight: 700;
+}
+.intro_subtitle {
+  font-size: 70px;
+  text-align: center;
+}

@@ -1,0 +1,32 @@
+.blockAuth {
+    position: relative;
+    top: 100px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+.authTitle {
+    font-size: 35px;
+}
+
+.authForm input {
+    font-size: medium;
+    width: 650px;
+    height: 50px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    border: none;
+    border-bottom: 2px solid #ff5f25;
+    outline: none !important;
+
+}
+
+.blockAuth button {
+    font-size: 20px;
+    color: white;
+    background-color: #ff5f25;
+    margin-top: 10px;
+    border: 1px solid #ff5f25;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
