@@ -2,8 +2,8 @@ import { applyMiddleware, combineReducers, createStore } from "redux";
 import thunk from "redux-thunk";
 import { coursesReducer } from "./coursesReducer";
 import { categoriesReducer } from "./categoriesReducer";
+import { auth } from './authReducer'
 import { favoritesReducer } from './favoritesReducer'
-import { auth } from '../components/Authorization/authReducer'
 const { createLogger } = require("redux-logger");
 const logger = createLogger({
   diff: true,

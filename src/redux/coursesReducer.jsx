@@ -55,3 +55,31 @@ export const coursesReducer = (state = initState, action) => {
   }
 };
 
+export const AddCourse = (title, address, phone, price, categoryId) => {
+  return () => {
+    fetch('http://localhost:3001/courses', {
+      method: 'POST',
+      body: JSON.stringify({
+        title,
+        address,
+        phone,
+        price,
+        categoryId,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    }).then(response => response.json())
+      .then(json => {
+        return {
+          payload: {
+            title,
+            address,
+            phone,
+            price,
+            categoryId,
+          }
+
+        }})
+  }
+}
