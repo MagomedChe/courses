@@ -70,7 +70,37 @@ export const AddCourse = (title, address, phone, price, categoryId) => {
         'Content-type': 'application/json; charset=UTF-8',
       },
     }).then(response => response.json())
-      .then(json => {
+      .then(() => {
+        return {
+          payload: {
+            title,
+            address,
+            phone,
+            price,
+            categoryId,
+          }
+
+        }})
+  }
+}
+
+
+export const editCourse = (title, address, phone, price, categoryId, id) => {
+  return () => {
+    fetch(`http://localhost:3001/courses/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify({
+        title,
+        address,
+        phone,
+        price,
+        categoryId,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    }).then(response => response.json())
+      .then(() => {
         return {
           payload: {
             title,

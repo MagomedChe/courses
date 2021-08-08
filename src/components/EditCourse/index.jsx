@@ -1,20 +1,31 @@
 import React from 'react'
-import styles from './styles.module.css'
-import { useDispatch } from 'react-redux'
-import { AddCourse } from '../../redux/coursesReducer'
+import styles from "../AddCourses/styles.module.css";
+import { useDispatch, useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
+import { editCourse } from '../../redux/coursesReducer'
 
-
-
-
-function AddCoursePage (props) {
+function EditCourse(props) {
   const dispatch = useDispatch();
+  const courses = useSelector((state) => state.courses.courses);
+
+  const id = parseInt(useParams().id);
+  // const [title, setTitle] = useState();
+  // const [address, setAddress] = useState();
+  // const [phone, setPhone] = useState();
+  // const [price, setPrice] = useState();
+  // const [categoryId, setCategoryId] = useState();
 
 
-  const handleAdd = () => {
-    dispatch(AddCourse(props.title, props.address, props.phone, props.price, props.categoryId, props.history))
+
+  const handleEdit = () => {
+    dispatch(editCourse(props.title, props.address, props.phone, props.price, props.categoryId, id));
     props.history.push('/')
+    props.setTitle('');
+    props.setAddress('');
+    props.setPhone('');
+    props.setPrice('');
+    props.setCategoryId('');
   }
-
 
   return (
     <div className={styles.blockAuth}>
@@ -52,8 +63,12 @@ function AddCoursePage (props) {
       </div>
       <div className={styles.authForm}>
         Категория
-        <select className={styles.authForm} name="categoryId" onChange={e => props.setCategoryId(e.target.value)}>
-          <option defaultValue>Выберите категорию</option>
+        <select
+          className={styles.authForm}
+          name="categoryId"
+          onChange={(e) => props.setCategoryId(e.target.value)}
+        >
+          <option value>Выберите категорию</option>
           <option value={1}>Программирование</option>
           <option value={2}>Языковые курсы</option>
           <option value={3}>Веб-дизайнер</option>
@@ -61,12 +76,12 @@ function AddCoursePage (props) {
         </select>
       </div>
       <div>
-        <button onClick={handleAdd}>
-          Добавить
+        <button onClick={handleEdit}>
+          Сохранить
         </button>
       </div>
     </div>
-  )
+  );
 }
 
-export default AddCoursePage
+export default EditCourse;
