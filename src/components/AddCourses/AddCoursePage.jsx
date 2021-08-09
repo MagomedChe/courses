@@ -1,18 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './styles.module.css'
 import { useDispatch } from 'react-redux'
 import { AddCourse } from '../../redux/coursesReducer'
+import { useHistory } from 'react-router-dom'
 
 
 
 
 function AddCoursePage (props) {
   const dispatch = useDispatch();
+  const history = useHistory();
+  const [title, setTitle] = useState('');
+  const [address, setAddress] = useState('');
+  const [phone, setPhone] = useState('');
+  const [price, setPrice] = useState('');
+  const [categoryId, setCategoryId] = useState('');
 
 
   const handleAdd = () => {
-    dispatch(AddCourse(props.title, props.address, props.phone, props.price, props.categoryId, props.history))
-    props.history.push('/')
+    dispatch(AddCourse(title, address, phone, price, categoryId, history))
+    history.push('/')
   }
 
 
@@ -22,37 +29,37 @@ function AddCoursePage (props) {
         Название курса
         <input
           type="text"
-          value={props.title}
-          onChange={e => props.setTitle(e.target.value)}
+          value={title}
+          onChange={e => setTitle(e.target.value)}
         />
       </div>
       <div className={styles.authForm}>
         Адрес
         <input
           type="text"
-          value={props.address}
-          onChange={e => props.setAddress(e.target.value)}
+          value={address}
+          onChange={e => setAddress(e.target.value)}
         />
       </div>
       <div className={styles.authForm}>
         Телефон
         <input
           type="text"
-          value={props.phone}
-          onChange={e => props.setPhone(e.target.value)}
+          value={phone}
+          onChange={e => setPhone(e.target.value)}
         />
       </div>
       <div className={styles.authForm}>
         Цена
         <input
           type="text"
-          value={props.price}
-          onChange={e => props.setPrice(e.target.value)}
+          value={price}
+          onChange={e => setPrice(e.target.value)}
         />
       </div>
       <div className={styles.authForm}>
         Категория
-        <select className={styles.authForm} name="categoryId" onChange={e => props.setCategoryId(e.target.value)}>
+        <select className={styles.authForm} name="categoryId" onChange={e => setCategoryId(e.target.value)}>
           <option defaultValue>Выберите категорию</option>
           <option value={1}>Программирование</option>
           <option value={2}>Языковые курсы</option>

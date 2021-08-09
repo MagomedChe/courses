@@ -14,12 +14,12 @@ import EditCourse from './EditCourse'
 function App() {
   const token = useSelector(state => state.auth.user.token);
 
-  const history = useHistory();
-  const [title, setTitle] = useState('');
-  const [address, setAddress] = useState('');
-  const [phone, setPhone] = useState('');
-  const [price, setPrice] = useState('');
-  const [categoryId, setCategoryId] = useState('');
+  // const history = useHistory();
+  // const [title, setTitle] = useState('');
+  // const [address, setAddress] = useState('');
+  // const [phone, setPhone] = useState('');
+  // const [price, setPrice] = useState('');
+  // const [categoryId, setCategoryId] = useState('');
 
 
   let addCourse;
@@ -29,32 +29,32 @@ function App() {
       <Switch>
         <Route path="/addCourse">
           <AddCoursePage
-            history={history}
-            title={title}
-            setTitle={setTitle}
-            address={address}
-            setAddress={setAddress}
-            phone={phone}
-            setPhone={setPhone}
-            price={price}
-            setPrice={setPrice}
-            categoryId={categoryId}
-            setCategoryId={setCategoryId}
+            // history={history}
+            // title={title}
+            // setTitle={setTitle}
+            // address={address}
+            // setAddress={setAddress}
+            // phone={phone}
+            // setPhone={setPhone}
+            // price={price}
+            // setPrice={setPrice}
+            // categoryId={categoryId}
+            // setCategoryId={setCategoryId}
           />
         </Route>
         <Route path="/editCourse/:id">
           <EditCourse
-            history={history}
-            title={title}
-            setTitle={setTitle}
-            address={address}
-            setAddress={setAddress}
-            phone={phone}
-            setPhone={setPhone}
-            price={price}
-            setPrice={setPrice}
-            categoryId={categoryId}
-            setCategoryId={setCategoryId}
+            // history={history}
+            // title={title}
+            // setTitle={setTitle}
+            // address={address}
+            // setAddress={setAddress}
+            // phone={phone}
+            // setPhone={setPhone}
+            // price={price}
+            // setPrice={setPrice}
+            // categoryId={categoryId}
+            // setCategoryId={setCategoryId}
           />
         </Route>
       </Switch>

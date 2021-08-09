@@ -9,11 +9,11 @@
   ],
   "courses": [
     {
-      "title": "askjdhfjksdf",
-      "address": "asdf",
-      "phone": "asdf",
-      "price": "qefqa234",
-      "categoryId": "1",
+      "title": "undefined",
+      "address": "undefined",
+      "phone": "undefined",
+      "price": "undefined",
+      "categoryId": "undefined",
       "id": 1
     },
     {
@@ -65,11 +65,11 @@
       "id": 7
     },
     {
-      "title": "Anglomania",
-      "address": "Трошева 7",
-      "phone": "+7 (928) 000-00-42",
-      "price": "10000",
-      "categoryId": "4",
+      "title": "bpvtyasdf",
+      "address": "адрес первого курса",
+      "phone": "11221221",
+      "price": "стоит много",
+      "categoryId": "2",
       "id": 8
     }
   ],

@@ -1,4 +1,4 @@
-import React  from 'react'
+import React, { useEffect } from 'react'
 import style from './courses.module.css'
 import { Link, useHistory } from 'react-router-dom'
 import { ADDED_FAVORITE, COURSES_SELECTED } from '../../redux/type'
@@ -25,6 +25,8 @@ function Course ({ item }) {
     dispatch(getComments(id));
     history.push("/comments");
   };
+
+
 
   return (
     <div key={item.id} className={style.cours}>

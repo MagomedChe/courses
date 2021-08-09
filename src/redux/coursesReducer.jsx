@@ -9,6 +9,8 @@ const initState = {
   loading: false,
   coursesSelected: "",
   coursesSelectedLoad: true,
+  selectedEditCourse: {}
+
 };
 export const coursesReducer = (state = initState, action) => {
   switch (action.type) {
@@ -48,6 +50,19 @@ export const coursesReducer = (state = initState, action) => {
         coursesSelectedLoad: false,
       };
 
+    case 'select/load/start':
+      return {
+        ...state,
+        loading: true
+      }
+
+    case 'select/load/success':
+      return {
+        ...state,
+        selectedEditCourse: action.payload,
+        loading: false
+      }
+
     default:
       return {
         ...state,
@@ -81,6 +96,26 @@ export const AddCourse = (title, address, phone, price, categoryId) => {
           }
 
         }})
+  }
+}
+
+export const loadCourseChange = (id, title, address, phone, price, categoryId) => {
+  return (dispatch) => {
+    dispatch({type: 'select/load/start'});
+    fetch(`http://localhost:3001/courses/${id}`)
+      .then(response => response.json())
+      .then(() => {
+        dispatch({
+          type: 'select/load/success',
+          payload: {
+            title: title,
+            address: address,
+            phone: phone,
+            price: price,
+            categoryId: categoryId,
+          }
+        })
+      })
   }
 }
 

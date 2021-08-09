@@ -1,30 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from "../AddCourses/styles.module.css";
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
-import { editCourse } from '../../redux/coursesReducer'
+import { useHistory, useParams } from 'react-router-dom'
+import { editCourse, loadCourseChange } from '../../redux/coursesReducer'
 
 function EditCourse(props) {
   const dispatch = useDispatch();
-  const courses = useSelector((state) => state.courses.courses);
-
   const id = parseInt(useParams().id);
-  // const [title, setTitle] = useState();
-  // const [address, setAddress] = useState();
-  // const [phone, setPhone] = useState();
-  // const [price, setPrice] = useState();
-  // const [categoryId, setCategoryId] = useState();
 
+  const selectedEditCourse = useSelector((state) => state.courses.selectedEditCourse);
+
+  const history = useHistory();
+  const [title, setTitle] = useState(`${selectedEditCourse.title}`);
+  const [address, setAddress] = useState(`${selectedEditCourse.address}`);
+  const [phone, setPhone] = useState(`${selectedEditCourse.phone}`);
+  const [price, setPrice] = useState(`${selectedEditCourse.price}`);
+  const [categoryId, setCategoryId] = useState(`${selectedEditCourse.categoryId}`);
+
+
+  useEffect(() => {
+    dispatch(loadCourseChange(id))
+  },[])
 
 
   const handleEdit = () => {
-    dispatch(editCourse(props.title, props.address, props.phone, props.price, props.categoryId, id));
-    props.history.push('/')
-    props.setTitle('');
-    props.setAddress('');
-    props.setPhone('');
-    props.setPrice('');
-    props.setCategoryId('');
+    dispatch(editCourse(title, address, phone, price, categoryId, id));
+    history.push('/')
+    setTitle('');
+    setAddress('');
+    setPhone('');
+    setPrice('');
+    setCategoryId('');
   }
 
   return (
@@ -33,32 +39,32 @@ function EditCourse(props) {
         Название курса
         <input
           type="text"
-          value={props.title}
-          onChange={e => props.setTitle(e.target.value)}
+          value={title}
+          onChange={e => setTitle(e.target.value)}
         />
       </div>
       <div className={styles.authForm}>
         Адрес
         <input
           type="text"
-          value={props.address}
-          onChange={e => props.setAddress(e.target.value)}
+          value={address}
+          onChange={e => setAddress(e.target.value)}
         />
       </div>
       <div className={styles.authForm}>
         Телефон
         <input
           type="text"
-          value={props.phone}
-          onChange={e => props.setPhone(e.target.value)}
+          value={phone}
+          onChange={e => setPhone(e.target.value)}
         />
       </div>
       <div className={styles.authForm}>
         Цена
         <input
           type="text"
-          value={props.price}
-          onChange={e => props.setPrice(e.target.value)}
+          value={price}
+          onChange={e => setPrice(e.target.value)}
         />
       </div>
       <div className={styles.authForm}>
@@ -66,7 +72,7 @@ function EditCourse(props) {
         <select
           className={styles.authForm}
           name="categoryId"
-          onChange={(e) => props.setCategoryId(e.target.value)}
+          onChange={(e) => setCategoryId(e.target.value)}
         >
           <option value>Выберите категорию</option>
           <option value={1}>Программирование</option>
