@@ -9,7 +9,8 @@ const initState = {
   loading: false,
   coursesSelected: "",
   coursesSelectedLoad: true,
-  selectedEditCourse: {}
+  selectedEditCourse: {},
+  deleting: false
 
 };
 export const coursesReducer = (state = initState, action) => {
@@ -50,6 +51,20 @@ export const coursesReducer = (state = initState, action) => {
         coursesSelectedLoad: false,
       };
 
+    case 'course/add/start':
+      return {
+        ...state,
+        loading: true
+      }
+
+    case 'course/add/success':
+      return {
+        ...state,
+        courses: action.payload,
+        loading: false
+      }
+
+
     case 'select/load/start':
       return {
         ...state,
@@ -63,6 +78,31 @@ export const coursesReducer = (state = initState, action) => {
         loading: false
       }
 
+    case 'course/delete/start':
+      return {
+        ...state,
+        courses: state.courses.map((course) => {
+          if (course.id === action.payload) {
+            return {
+              ...course,
+              deleting: true
+            }
+          }
+          return course;
+        })
+      }
+
+    case 'course/delete/success':
+      return {
+        ...state,
+        courses: state.courses.filter((course) => {
+          if (course.id !== action.payload) {
+            return true
+          }
+          return false
+        })
+      }
+
     default:
       return {
         ...state,
@@ -71,7 +111,8 @@ export const coursesReducer = (state = initState, action) => {
 };
 
 export const AddCourse = (title, address, phone, price, categoryId) => {
-  return () => {
+  return (dispatch) => {
+    dispatch({type: 'course/add/start'})
     fetch('http://localhost:3001/courses', {
       method: 'POST',
       body: JSON.stringify({
@@ -86,7 +127,8 @@ export const AddCourse = (title, address, phone, price, categoryId) => {
       },
     }).then(response => response.json())
       .then(() => {
-        return {
+        dispatch({
+          type: 'course/add/success',
           payload: {
             title,
             address,
@@ -94,25 +136,25 @@ export const AddCourse = (title, address, phone, price, categoryId) => {
             price,
             categoryId,
           }
-
-        }})
+        })
+      })
   }
 }
 
-export const loadCourseChange = (id, title, address, phone, price, categoryId) => {
+export const loadCourseChange = (id) => {
   return (dispatch) => {
     dispatch({type: 'select/load/start'});
     fetch(`http://localhost:3001/courses/${id}`)
       .then(response => response.json())
-      .then(() => {
+      .then(json => {
         dispatch({
           type: 'select/load/success',
           payload: {
-            title: title,
-            address: address,
-            phone: phone,
-            price: price,
-            categoryId: categoryId,
+            title: json.title,
+            address: json.address,
+            phone: json.phone,
+            price: json.price,
+            categoryId: json.categoryId,
           }
         })
       })
@@ -123,7 +165,7 @@ export const loadCourseChange = (id, title, address, phone, price, categoryId) =
 export const editCourse = (title, address, phone, price, categoryId, id) => {
   return () => {
     fetch(`http://localhost:3001/courses/${id}`, {
-      method: 'PUT',
+      method: 'PATCH',
       body: JSON.stringify({
         title,
         address,
@@ -146,5 +188,25 @@ export const editCourse = (title, address, phone, price, categoryId, id) => {
           }
 
         }})
+  }
+}
+
+export const deleteCourse = (id) => {
+  return (dispatch) => {
+    dispatch({
+      type: 'course/delete/start',
+      payload: id
+    })
+    fetch(`http://localhost:3001/courses/${id}`,{
+      method: 'DELETE'
+    })
+      .then(response => response.json())
+      .then(() => {
+        dispatch({
+          type:'course/delete/success',
+          payload: id
+        })
+
+      })
   }
 }

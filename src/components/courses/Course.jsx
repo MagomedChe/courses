@@ -1,12 +1,15 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import style from './courses.module.css'
 import { Link, useHistory } from 'react-router-dom'
 import { ADDED_FAVORITE, COURSES_SELECTED } from '../../redux/type'
 import { useDispatch, useSelector } from 'react-redux'
 import { getComments } from '../../redux/actions'
+import DeletedCourse from '../DeletedCourse'
 
 function Course ({ item }) {
   const favorites = useSelector(state => state.favorites.items);
+  const token = useSelector(state => state.auth.user.token);
+
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -35,7 +38,11 @@ function Course ({ item }) {
       <div>Телефон: {item.phone}</div>
       <div>Стоимость: {item.price}p</div>
       <div className={style.cours_button}>
-        <Link to={`/editCourse/${item.id}`}>Редактировать</Link>
+        {token &&
+          <div style={{display: 'contents'}}>
+            <Link to={`/editCourse/${item.id}`} >Редактировать</Link>
+            <DeletedCourse/>
+          </div>}
         <div onClick={()=>handleFavorites(item)}>{favorites.find(elment=>elment.id ===item.id)?'В избранном': 'В избранное'}</div>
         <div>Сравнить</div>
         <div onClick={() => handleClick(item.id)}>Отзывы</div>

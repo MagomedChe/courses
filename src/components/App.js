@@ -1,10 +1,10 @@
 import HomePage from "./HomePage";
 import "../style.css";
 import Header from "./header/Header";
-import React, { useState } from 'react'
+import React from 'react'
 import Footer from "./footer/Footer";
 import Favorites from './favorites/Favorites'
-import { Redirect, Route, Switch, useHistory } from 'react-router-dom'
+import { Redirect, Route, Switch } from 'react-router-dom'
 import Comments from "./comments/Comments";
 import Authorization from './Authorization'
 import AddCoursePage from './AddCourses/AddCoursePage'

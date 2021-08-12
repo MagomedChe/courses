@@ -9,8 +9,15 @@ function EditCourse(props) {
   const id = parseInt(useParams().id);
 
   const selectedEditCourse = useSelector((state) => state.courses.selectedEditCourse);
+  const loading = useSelector((state) => state.courses.loading)
 
   const history = useHistory();
+
+  useEffect(() => {
+    dispatch(loadCourseChange(id))
+  },[])
+
+
   const [title, setTitle] = useState(`${selectedEditCourse.title}`);
   const [address, setAddress] = useState(`${selectedEditCourse.address}`);
   const [phone, setPhone] = useState(`${selectedEditCourse.phone}`);
@@ -18,12 +25,7 @@ function EditCourse(props) {
   const [categoryId, setCategoryId] = useState(`${selectedEditCourse.categoryId}`);
 
 
-  useEffect(() => {
-    dispatch(loadCourseChange(id))
-  },[])
-
-
-  const handleEdit = () => {
+  const handleEdit = (title, address, phone, price, categoryId, id) => {
     dispatch(editCourse(title, address, phone, price, categoryId, id));
     history.push('/')
     setTitle('');
@@ -35,57 +37,62 @@ function EditCourse(props) {
 
   return (
     <div className={styles.blockAuth}>
-      <div className={styles.authForm}>
-        Название курса
-        <input
-          type="text"
-          value={title}
-          onChange={e => setTitle(e.target.value)}
-        />
-      </div>
-      <div className={styles.authForm}>
-        Адрес
-        <input
-          type="text"
-          value={address}
-          onChange={e => setAddress(e.target.value)}
-        />
-      </div>
-      <div className={styles.authForm}>
-        Телефон
-        <input
-          type="text"
-          value={phone}
-          onChange={e => setPhone(e.target.value)}
-        />
-      </div>
-      <div className={styles.authForm}>
-        Цена
-        <input
-          type="text"
-          value={price}
-          onChange={e => setPrice(e.target.value)}
-        />
-      </div>
-      <div className={styles.authForm}>
-        Категория
-        <select
-          className={styles.authForm}
-          name="categoryId"
-          onChange={(e) => setCategoryId(e.target.value)}
-        >
-          <option value>Выберите категорию</option>
-          <option value={1}>Программирование</option>
-          <option value={2}>Языковые курсы</option>
-          <option value={3}>Веб-дизайнер</option>
-          <option value={4}>Маркетинг</option>
-        </select>
-      </div>
-      <div>
-        <button onClick={handleEdit}>
-          Сохранить
-        </button>
-      </div>
+      {loading ? (<div>Идет загрузка ...</div>) : (
+        <div>
+          <div className={styles.authForm}>
+            Название курса
+            <input
+              type="text"
+              value={title}
+              onChange={e => setTitle(e.target.value)}
+            />
+          </div>
+          <div className={styles.authForm}>
+            Адрес
+            <input
+              type="text"
+              value={address}
+              onChange={e => setAddress(e.target.value)}
+            />
+          </div>
+          <div className={styles.authForm}>
+            Телефон
+            <input
+              type="text"
+              value={phone}
+              onChange={e => setPhone(e.target.value)}
+            />
+          </div>
+          <div className={styles.authForm}>
+            Цена
+            <input
+              type="text"
+              value={price}
+              onChange={e => setPrice(e.target.value)}
+            />
+          </div>
+          <div className={styles.authForm}>
+            Категория
+            <select
+              className={styles.authForm}
+              name="categoryId"
+              onChange={(e) => setCategoryId(e.target.value)}
+            >
+              <option value>Выберите категорию</option>
+              <option value={1}>Программирование</option>
+              <option value={2}>Языковые курсы</option>
+              <option value={3}>Веб-дизайнер</option>
+              <option value={4}>Маркетинг</option>
+            </select>
+          </div>
+          <div>
+            <button onClick={() => handleEdit(title, address, phone, price, categoryId, id)}>
+              Сохранить
+            </button>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }
