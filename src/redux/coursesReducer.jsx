@@ -9,7 +9,9 @@ const initState = {
   loading: false,
   coursesSelected: "",
   coursesSelectedLoad: true,
+
   selectedEditCourse: {},
+  selectedLoading: false,
   deleting: false
 
 };
@@ -59,8 +61,9 @@ export const coursesReducer = (state = initState, action) => {
 
     case 'course/add/success':
       return {
-        ...state,
+
         courses: action.payload,
+        ...state,
         loading: false
       }
 
@@ -68,14 +71,14 @@ export const coursesReducer = (state = initState, action) => {
     case 'select/load/start':
       return {
         ...state,
-        loading: true
+        selectedLoading: true
       }
 
     case 'select/load/success':
       return {
         ...state,
         selectedEditCourse: action.payload,
-        loading: false
+        selectedLoading: false
       }
 
     case 'course/delete/start':
@@ -177,14 +180,14 @@ export const editCourse = (title, address, phone, price, categoryId, id) => {
         'Content-type': 'application/json; charset=UTF-8',
       },
     }).then(response => response.json())
-      .then(() => {
+      .then((json) => {
         return {
           payload: {
-            title,
-            address,
-            phone,
-            price,
-            categoryId,
+            title: json.title,
+            address: json.address,
+            phone: json.phone,
+            price: json.price,
+            categoryId: json.categoryId,
           }
 
         }})

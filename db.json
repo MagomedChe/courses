@@ -9,76 +9,12 @@
   ],
   "courses": [
     {
-      "title": "Интукоде",
-      "address": "11фываыфваа",
-      "phone": "11фывафыва",
-      "price": "1 000 0000 000",
-      "categoryId": "1",
-      "id": 1
-    },
-    {
-      "title": "второй отредактированый курс",
-      "address": "фывафыва",
-      "phone": "фыва",
-      "price": "йцукцйук",
-      "categoryId": "3",
-      "id": 2
-    },
-    {
-      "title": "курсы по придумыванию названий переменным и функциям",
-      "address": "Трошева, 7",
-      "phone": "Ипхоне",
-      "price": "тыщ мильон",
-      "categoryId": "1",
-      "id": 3
-    },
-    {
-      "title": "Anglomania",
-      "address": "Трошева 7",
-      "phone": "+7 (928) 000-00-42",
-      "price": "10000",
-      "categoryId": "2",
-      "id": 4
-    },
-    {
-      "title": "intocode",
-      "address": "Трошева 7",
-      "phone": "+7 (938) 904-85-33",
-      "price": "10000",
-      "categoryId": "3",
-      "id": 5
-    },
-    {
-      "title": "Anglomania",
-      "address": "Трошева 7",
-      "phone": "+7 (928) 000-00-42",
-      "price": "10000",
-      "categoryId": "3",
-      "id": 6
-    },
-    {
-      "title": "33",
-      "address": "3",
-      "phone": "undefined",
-      "price": "3",
-      "categoryId": "2",
-      "id": 7
-    },
-    {
       "title": "bpvtyasdf",
       "address": "адрес первого курса",
       "phone": "11221221",
       "price": "стоит много",
       "categoryId": "2",
-      "id": 8
-    },
-    {
-      "title": "Новый курс",
-      "address": "фывлда",
-      "phone": "й34325",
-      "price": "23454325",
-      "categoryId": "3",
-      "id": 9
+      "id": 1
     }
   ],
   "callback": [

@@ -41,7 +41,7 @@ function Course ({ item }) {
         {token &&
           <div style={{display: 'contents'}}>
             <Link to={`/editCourse/${item.id}`} >Редактировать</Link>
-            <DeletedCourse/>
+            <DeletedCourse item={item}/>
           </div>}
         <div onClick={()=>handleFavorites(item)}>{favorites.find(elment=>elment.id ===item.id)?'В избранном': 'В избранное'}</div>
         <div>Сравнить</div>

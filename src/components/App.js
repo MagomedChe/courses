@@ -28,34 +28,10 @@ function App() {
     addCourse = (
       <Switch>
         <Route path="/addCourse">
-          <AddCoursePage
-            // history={history}
-            // title={title}
-            // setTitle={setTitle}
-            // address={address}
-            // setAddress={setAddress}
-            // phone={phone}
-            // setPhone={setPhone}
-            // price={price}
-            // setPrice={setPrice}
-            // categoryId={categoryId}
-            // setCategoryId={setCategoryId}
-          />
+          <AddCoursePage/>
         </Route>
         <Route path="/editCourse/:id">
-          <EditCourse
-            // history={history}
-            // title={title}
-            // setTitle={setTitle}
-            // address={address}
-            // setAddress={setAddress}
-            // phone={phone}
-            // setPhone={setPhone}
-            // price={price}
-            // setPrice={setPrice}
-            // categoryId={categoryId}
-            // setCategoryId={setCategoryId}
-          />
+          <EditCourse/>
         </Route>
       </Switch>
       )

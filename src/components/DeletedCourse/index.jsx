@@ -2,17 +2,17 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteCourse } from '../../redux/coursesReducer'
 
-function DeletedCourse (props) {
+function DeletedCourse ({item}) {
   const dispatch = useDispatch();
-  const courses = useSelector(state => state.courses.courses);
 
-  const handleDelete = (id) => {
-    dispatch(deleteCourse(id))
+
+  const handleDelete = () => {
+    dispatch(deleteCourse(item.id))
   }
 
   return (
-    <button onClick={() => handleDelete(courses.id)} disabled={courses.deleting}>
-      DELETED
+    <button onClick={handleDelete}>
+      DELETE
     </button>
   )
 }
