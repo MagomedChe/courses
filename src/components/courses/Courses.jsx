@@ -23,7 +23,7 @@ function Courses(props) {
         <div className={style.courses_box}>
           {courses.map((item) => {
             return (
-              <Course item={item}/>
+              <Course item={item} key={item.id}/>
             );
           })}
         </div>
