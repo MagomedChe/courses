@@ -1,13 +1,10 @@
-import React, { useState } from 'react'
-import styles from './styles.module.css'
-import { useDispatch } from 'react-redux'
-import { AddCourse } from '../../redux/coursesReducer'
-import { useHistory } from 'react-router-dom'
+import React, { useState } from "react";
+import styles from "./styles.module.css";
+import { useDispatch } from "react-redux";
+import { AddCourse } from "../../redux/coursesReducer";
+import { useHistory } from "react-router-dom";
 
-
-
-
-function AddCoursePage (props) {
+function AddCoursePage(props) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [title, setTitle] = useState();
@@ -17,10 +14,9 @@ function AddCoursePage (props) {
   const [categoryId, setCategoryId] = useState();
 
   const handleAdd = () => {
-    dispatch(AddCourse(title, address, phone, price, categoryId, history))
-    history.push('/')
-  }
-
+    dispatch(AddCourse(title, address, phone, price, categoryId, history));
+    history.push("/");
+  };
 
   return (
     <div className={styles.blockAuth}>
@@ -29,7 +25,7 @@ function AddCoursePage (props) {
         <input
           type="text"
           value={title}
-          onChange={e => setTitle(e.target.value)}
+          onChange={(e) => setTitle(e.target.value)}
         />
       </div>
       <div className={styles.authForm}>
@@ -37,7 +33,7 @@ function AddCoursePage (props) {
         <input
           type="text"
           value={address}
-          onChange={e => setAddress(e.target.value)}
+          onChange={(e) => setAddress(e.target.value)}
         />
       </div>
       <div className={styles.authForm}>
@@ -45,7 +41,7 @@ function AddCoursePage (props) {
         <input
           type="text"
           value={phone}
-          onChange={e => setPhone(e.target.value)}
+          onChange={(e) => setPhone(e.target.value)}
         />
       </div>
       <div className={styles.authForm}>
@@ -53,12 +49,16 @@ function AddCoursePage (props) {
         <input
           type="text"
           value={price}
-          onChange={e => setPrice(e.target.value)}
+          onChange={(e) => setPrice(e.target.value)}
         />
       </div>
       <div className={styles.authForm}>
         Категория
-        <select className={styles.authForm} name="categoryId" onChange={e => setCategoryId(e.target.value)}>
+        <select
+          className={styles.authForm}
+          name="categoryId"
+          onChange={(e) => setCategoryId(e.target.value)}
+        >
           <option selected>Выберите категорию</option>
           <option value={1}>Программирование</option>
           <option value={2}>Языковые курсы</option>
@@ -67,12 +67,10 @@ function AddCoursePage (props) {
         </select>
       </div>
       <div>
-        <button onClick={handleAdd}>
-          Добавить
-        </button>
+        <button onClick={handleAdd}>Добавить</button>
       </div>
     </div>
-  )
+  );
 }
 
-export default AddCoursePage
+export default AddCoursePage;

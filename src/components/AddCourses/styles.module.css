@@ -1,44 +1,44 @@
 .blockAuth {
-    position: relative;
-    top: 100px;
-    text-align: center;
-    margin: auto;
-    min-height: 90vh;
+  position: relative;
+  top: 100px;
+  text-align: center;
+  margin: auto;
+  min-height: 90vh;
 }
 
-.authForm input, option {
-    font-size: 25px;
-    width: 650px;
-    height: 50px;
-    margin-bottom: 30px;
-    padding-left: 10px;
-    border: none;
-    border-bottom: 2px solid #ff5f25;
-    outline: none !important;
-    font-family: "Amatic SC", cursive;
-    font-weight: bold;
-
+.authForm input,
+option {
+  font-size: 25px;
+  width: 650px;
+  height: 50px;
+  margin-bottom: 30px;
+  padding-left: 10px;
+  border: none;
+  border-bottom: 2px solid #ff5f25;
+  outline: none !important;
+  font-family: "Amatic SC", cursive;
+  font-weight: bold;
 }
 
 select {
-    font-size: 15px;
-    width: 650px;
-    height: 50px;
-    margin-bottom: 30px;
-    padding-left: 10px;
-    border: none;
-    border-bottom: 2px solid #ff5f25;
-    outline: none !important;
-    font-family: "Amatic SC", cursive;
-    /*font-weight: bold;*/
+  font-size: 15px;
+  width: 650px;
+  height: 50px;
+  margin-bottom: 30px;
+  padding-left: 10px;
+  border: none;
+  border-bottom: 2px solid #ff5f25;
+  outline: none !important;
+  font-family: "Amatic SC", cursive;
+  /*font-weight: bold;*/
 }
 
 .blockAuth button {
-    font-size: 20px;
-    color: white;
-    background-color: #ff5f25;
-    margin-top: 10px;
-    border: 1px solid #ff5f25;
-    border-radius: 5px;
-    padding: 5px 10px;
+  font-size: 20px;
+  color: white;
+  background-color: #ff5f25;
+  margin-top: 10px;
+  border: 1px solid #ff5f25;
+  border-radius: 5px;
+  padding: 5px 10px;
 }

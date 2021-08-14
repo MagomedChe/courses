@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories, loadCourses } from "../../redux/actions";
 import style from "./courses.module.css";
-import Course from './Course'
+import Course from "./Course";
 
 function Courses(props) {
   const dispatch = useDispatch();
@@ -22,9 +22,7 @@ function Courses(props) {
       ) : (
         <div className={style.courses_box}>
           {courses.map((item) => {
-            return (
-              <Course item={item}/>
-            );
+            return <Course item={item} />;
           })}
         </div>
       )}

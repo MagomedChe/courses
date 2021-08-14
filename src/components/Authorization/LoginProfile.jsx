@@ -10,11 +10,11 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 
 import { logout } from "../../redux/authReducer";
 import { useDispatch } from "react-redux";
-import { NavLink } from 'react-router-dom'
+import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
-    marginBottom: 0,
+    marginBottom: 5,
   },
   icon: {
     fontSize: 40,
@@ -53,9 +53,7 @@ export default function PrimarySearchAppBar() {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose}>
-        <NavLink to={"/addCourse"}>
-            Добавить курс
-        </NavLink>
+        <NavLink to={"/addCourse"}>Добавить курс</NavLink>
       </MenuItem>
       <MenuItem onClick={handleLogout}>Выйти</MenuItem>
     </Menu>

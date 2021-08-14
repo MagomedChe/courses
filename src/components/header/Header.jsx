@@ -1,17 +1,12 @@
 import React from "react";
 import style from "./style.module.css";
 import { NavLink } from "react-router-dom";
-import { useSelector } from 'react-redux'
-import PrimarySearchAppBar from '../Authorization/LoginProfile'
+import { useSelector } from "react-redux";
+import PrimarySearchAppBar from "../Authorization/LoginProfile";
 // import { logout } from '../../redux/authReducer'
 
-
 function Header(props) {
-  const user = useSelector(state => state.auth.user);
-
-
-
-
+  const user = useSelector((state) => state.auth.user);
 
   return (
     <div className={style.header}>
@@ -32,7 +27,7 @@ function Header(props) {
           to={"/city"}
           activeClassName={style.active}
         >
-          Ваш город?
+          Ваш город? {props.youCity}
         </NavLink>
         <NavLink
           className={style.nav_item}
@@ -41,14 +36,16 @@ function Header(props) {
         >
           Избранное
         </NavLink>
-        {!user.token ? ( <NavLink
-          className={style.nav_item}
-          to={"/auth"}
-          activeClassName={style.active}
-        >
-          Войти
-        </NavLink>) : (
-          <PrimarySearchAppBar/>
+        {!user.token ? (
+          <NavLink
+            className={style.nav_item}
+            to={"/auth"}
+            activeClassName={style.active}
+          >
+            Войти
+          </NavLink>
+        ) : (
+          <PrimarySearchAppBar />
         )}
       </div>
     </div>

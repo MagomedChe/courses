@@ -1,87 +1,84 @@
 const initialState = {
-  user: JSON.parse(localStorage.getItem('user')) || {},
+  user: JSON.parse(localStorage.getItem("user")) || {},
   loadingUsers: false,
   auth: false,
   loadingLogin: false,
   error: false,
-}
-
+};
 
 export const auth = (state = initialState, action) => {
   switch (action.type) {
-    case 'auth/start':
+    case "auth/start":
       return {
         ...state,
         loadingLogin: true,
         error: false,
         auth: false,
-      }
+      };
 
-    case 'auth/success':
+    case "auth/success":
       return {
         ...state,
         loadingLogin: false,
         auth: true,
         user: action.payload,
-      }
+      };
 
-    case 'auth/error':
+    case "auth/error":
       return {
         ...state,
         error: true,
         loadingLogin: false,
         auth: false,
-      }
+      };
 
-    case 'auth/out':
+    case "auth/out":
       return {
         ...state,
-        user: {}
-      }
+        user: {},
+      };
 
     default:
-      return state
+      return state;
   }
-}
-
-
+};
 
 export const authAdmin = (login, pass, history) => {
   return (dispatch) => {
-    dispatch({type: 'auth/start'});
+    dispatch({ type: "auth/start" });
 
-    fetch('http://localhost:3001/auth', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    fetch("http://localhost:3001/auth", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         login,
         pass,
       }),
     })
-      .then(response => response.json())
-      .then(json => {
+      .then((response) => response.json())
+      .then((json) => {
         if (!json.token) {
-          dispatch({type: 'auth/error'})
+          dispatch({ type: "auth/error" });
         } else {
-          localStorage.setItem('user', JSON.stringify(json));
-          history.push('/');
+          localStorage.setItem("user", JSON.stringify(json));
+          history.push("/");
           dispatch({
-            type: 'auth/success',
-            payload: json
-          })
+            type: "auth/success",
+            payload: json,
+          });
         }
       })
       .catch(() => {
         dispatch({
-          type: 'auth/error',
+          type: "auth/error",
         });
       });
-  }
-}
+  };
+};
 
 export const logout = () => {
-  localStorage.removeItem('user');
+  localStorage.removeItem("user");
   return {
-    type: 'auth/out'
-  }
-}
+    type: "auth/out",
+  };
+};

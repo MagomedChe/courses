@@ -1,21 +1,21 @@
-import React  from 'react'
-import style from './courses.module.css'
-import { useHistory } from 'react-router-dom'
-import { ADDED_FAVORITE, COURSES_SELECTED } from '../../redux/type'
-import { useDispatch, useSelector } from 'react-redux'
-import { getComments } from '../../redux/actions'
+import React from "react";
+import style from "./courses.module.css";
+import { useHistory } from "react-router-dom";
+import { ADDED_FAVORITE, COURSES_SELECTED } from "../../redux/type";
+import { useDispatch, useSelector } from "react-redux";
+import { getComments } from "../../redux/actions";
 
-function Course ({ item }) {
-  const favorites = useSelector(state => state.favorites.items);
+function Course({ item }) {
+  const favorites = useSelector((state) => state.favorites.items);
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const handleFavorites=(item)=>{
-      dispatch({
-        type: ADDED_FAVORITE,
-        payload: item
-      })
-  }
+  const handleFavorites = (item) => {
+    dispatch({
+      type: ADDED_FAVORITE,
+      payload: item,
+    });
+  };
   const handleClick = (id) => {
     dispatch({
       type: COURSES_SELECTED,
@@ -32,12 +32,16 @@ function Course ({ item }) {
       <div>Телефон: {item.phone}</div>
       <div>Стоимость: {item.price}p</div>
       <div className={style.cours_button}>
-        <div onClick={()=>handleFavorites(item)}>{favorites.find(elment=>elment.id ===item.id)?'В избранном': 'В избранное'}</div>
+        <div onClick={() => handleFavorites(item)}>
+          {favorites.find((elment) => elment.id === item.id)
+            ? "В избранном"
+            : "В избранное"}
+        </div>
         <div>Сравнить</div>
         <div onClick={() => handleClick(item.id)}>Отзывы</div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Course
+export default Course;

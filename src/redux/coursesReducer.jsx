@@ -1,4 +1,4 @@
-import { COURSES_LOAD_START } from './type'
+import { COURSES_LOAD_START } from "./type";
 import { COURSES_LOAD_SUCCESS } from "./type";
 import { COURSES_SELECTED } from "./type";
 
@@ -57,8 +57,8 @@ export const coursesReducer = (state = initState, action) => {
 
 export const AddCourse = (title, address, phone, price, categoryId) => {
   return () => {
-    fetch('http://localhost:3001/courses', {
-      method: 'POST',
+    fetch("http://localhost:3001/courses", {
+      method: "POST",
       body: JSON.stringify({
         title,
         address,
@@ -67,10 +67,11 @@ export const AddCourse = (title, address, phone, price, categoryId) => {
         categoryId,
       }),
       headers: {
-        'Content-type': 'application/json; charset=UTF-8',
+        "Content-type": "application/json; charset=UTF-8",
       },
-    }).then(response => response.json())
-      .then(json => {
+    })
+      .then((response) => response.json())
+      .then((json) => {
         return {
           payload: {
             title,
@@ -78,8 +79,8 @@ export const AddCourse = (title, address, phone, price, categoryId) => {
             phone,
             price,
             categoryId,
-          }
-
-        }})
-  }
-}
+          },
+        };
+      });
+  };
+};
