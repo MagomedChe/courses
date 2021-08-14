@@ -9,100 +9,12 @@
   ],
   "courses": [
     {
-      "title": "intocode",
-      "address": "Трошева 7",
-      "phone": "+7 (938) 904-85-33",
-      "price": "10000",
-      "categoryId": "1",
-      "id": 1
-    },
-    {
-      "title": "Anglomania",
-      "address": "Трошева 7",
-      "phone": "+7 (928) 000-00-42",
-      "price": "10000",
-      "categoryId": "1",
-      "id": 2
-    },
-    {
-      "title": "intocode",
-      "address": "Трошева 7",
-      "phone": "+7 (938) 904-85-33",
-      "price": "10000",
-      "categoryId": "1",
-      "id": 3
-    },
-    {
-      "title": "Anglomania",
-      "address": "Трошева 7",
-      "phone": "+7 (928) 000-00-42",
-      "price": "10000",
+      "title": "bpvtyasdf",
+      "address": "адрес первого курса",
+      "phone": "11221221",
+      "price": "стоит много",
       "categoryId": "2",
-      "id": 4
-    },
-    {
-      "title": "intocode",
-      "address": "Трошева 7",
-      "phone": "+7 (938) 904-85-33",
-      "price": "10000",
-      "categoryId": "3",
-      "id": 5
-    },
-    {
-      "title": "Anglomania",
-      "address": "Трошева 7",
-      "phone": "+7 (928) 000-00-42",
-      "price": "10000",
-      "categoryId": "3",
-      "id": 6
-    },
-    {
-      "title": "intocode",
-      "address": "Трошева 7",
-      "phone": "+7 (938) 904-85-33",
-      "price": "10000",
-      "categoryId": "4",
-      "id": 7
-    },
-    {
-      "title": "Anglomania",
-      "address": "Трошева 7",
-      "phone": "+7 (928) 000-00-42",
-      "price": "10000",
-      "categoryId": "4",
-      "id": 8
-    },
-    {
-      "title": "qwer",
-      "address": "qwer",
-      "phone": "qwer",
-      "price": "qwer",
-      "categoryId": "1",
-      "id": "clOkIvA"
-    },
-    {
-      "title": "йцук",
-      "address": "йцук",
-      "phone": "йцу",
-      "price": "кцук",
-      "categoryId": "1",
-      "id": 9
-    },
-    {
-      "title": "лорлоравп",
-      "address": "выапывп",
-      "phone": "выапывап",
-      "price": "выапвап",
-      "categoryId": "1",
-      "id": 10
-    },
-    {
-      "title": "sdfgdfg",
-      "address": "dsfgfdg",
-      "phone": "sdfgfdgsdfg",
-      "price": "dsfg",
-      "categoryId": "1",
-      "id": 11
+      "id": 1
     }
   ],
   "callback": [
