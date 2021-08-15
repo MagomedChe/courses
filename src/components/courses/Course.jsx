@@ -1,6 +1,6 @@
 import React from 'react'
 import style from './courses.module.css'
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { ADDED_FAVORITE, COURSES_SELECTED } from '../../redux/type'
 import { useDispatch, useSelector } from 'react-redux'
 import { getComments } from '../../redux/actions'
@@ -27,8 +27,9 @@ function Course ({ item }) {
     dispatch(getComments(id));
     history.push("/comments");
   };
-
-
+  const handleReduct = () =>{
+      history.push(`/editCourse/${item.id}`)
+  }
 
   return (
     <div key={item.id} className={style.cours}>
@@ -39,12 +40,12 @@ function Course ({ item }) {
       <div className={style.cours_button}>
         {token &&
           <div style={{display: 'contents'}}>
-            <Link to={`/editCourse/${item.id}`} >Редактировать</Link>
+            <button onClick={handleReduct}>Редактировать</button>
             <DeletedCourse item={item}/>
           </div>}
-        <div onClick={()=>handleFavorites(item)}>{favorites.find(elment=>elment.id ===item.id)?'В избранном': 'В избранное'}</div>
-        <div>Сравнить</div>
-        <div onClick={() => handleClick(item.id)}>Отзывы</div>
+        <button onClick={()=>handleFavorites(item)}>{favorites.find(elment=>elment.id ===item.id)?'В избранном': 'В избранное'}</button>
+        <button>Сравнить</button>
+        <button onClick={() => handleClick(item.id)}>Отзывы</button>
       </div>
     </div>
   );

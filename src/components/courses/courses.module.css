@@ -38,20 +38,22 @@
   right: 10px;
   display: flex;
 }
-.cours_button div {
-  width: 110px;
+.cours_button button {
+  min-width: 110px;
   display: block;
   background-color: #ff5f25;
   border: none;
-  padding: 5px;
+  padding: 5px 10px;
   color: white;
   border-radius: 5px;
+  font-family: "Amatic SC", cursive;
+  font-weight: bold;
   font-size: 25px;
   cursor: pointer;
   text-align: center;
   margin-left: 10px;
 }
-.cours_button div:hover {
+.cours_button button:hover {
   color: black;
 }
 .cours_title {

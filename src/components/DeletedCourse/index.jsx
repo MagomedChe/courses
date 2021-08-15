@@ -12,7 +12,7 @@ function DeletedCourse ({item}) {
 
   return (
     <button onClick={handleDelete}>
-      DELETE
+      Удалить
     </button>
   )
 }
