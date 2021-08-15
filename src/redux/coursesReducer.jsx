@@ -1,4 +1,4 @@
-import { COURSES_LOAD_START } from './type'
+import { COURSES_LOAD_START } from "./type";
 import { COURSES_LOAD_SUCCESS } from "./type";
 import { COURSES_SELECTED } from "./type";
 
@@ -126,7 +126,7 @@ export const AddCourse = (title, address, phone, price, categoryId) => {
         categoryId,
       }),
       headers: {
-        'Content-type': 'application/json; charset=UTF-8',
+        "Content-type": "application/json; charset=UTF-8",
       },
     }).then(response => response.json())
       .then(() => {

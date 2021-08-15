@@ -10,16 +10,15 @@ function Course ({ item }) {
   const favorites = useSelector(state => state.favorites.items);
   const token = useSelector(state => state.auth.user.token);
 
-
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const handleFavorites=(item)=>{
-      dispatch({
-        type: ADDED_FAVORITE,
-        payload: item
-      })
-  }
+  const handleFavorites = (item) => {
+    dispatch({
+      type: ADDED_FAVORITE,
+      payload: item,
+    });
+  };
   const handleClick = (id) => {
     dispatch({
       type: COURSES_SELECTED,
@@ -48,7 +47,7 @@ function Course ({ item }) {
         <div onClick={() => handleClick(item.id)}>Отзывы</div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Course
+export default Course;
