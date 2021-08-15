@@ -34,7 +34,7 @@ function AddComment(props) {
           onChange(e);
         }}
       />
-      <div onClick={handleClick}>Добавить</div>
+      <button onClick={handleClick}>Добавить</button>
     </div>
   );
 }

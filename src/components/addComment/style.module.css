@@ -14,18 +14,21 @@
   outline: none !important;
   border-bottom: 2px solid #ff5f25;
 }
-.comment_add_panel div {
+.comment_add_panel button {
+  min-width: 110px;
   display: block;
-  margin: auto;
-  font-size: 25px;
-  width: 120px;
-  text-align: center;
-  padding: 5px 10px;
   background-color: #ff5f25;
+  border: none;
+  padding: 5px 10px;
   color: white;
   border-radius: 5px;
+  font-family: "Amatic SC", cursive;
+  font-weight: bold;
+  font-size: 25px;
   cursor: pointer;
+  text-align: center;
+  margin: auto;
 }
-.comment_add_panel div:hover {
+.comment_add_panel button:hover {
   color: black;
 }
