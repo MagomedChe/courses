@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { getCategories, getComments, loadCourses } from "../../redux/actions";
+import { getCategories } from './actionsCourses'
+import { loadCourses} from './actionsCourses'
 import style from "./courses.module.css";
-import { COURSES_SELECTED } from "../../redux/type";
-import { useHistory } from "react-router-dom";
 import Course from './Course'
 
 function Courses(props) {
@@ -14,7 +13,9 @@ function Courses(props) {
   }, [dispatch]);
 
   const courses = useSelector((state) => state.courses.courses);
+  const filter =useSelector(state => state.courses.filter)
   const loading = useSelector((state) => state.courses.loading);
+  const filteredCourses = courses.filter((course)=>course.title.indexOf(filter)>-1)
 
   return (
     <div className={style.courses}>
@@ -23,9 +24,9 @@ function Courses(props) {
         <div className={style.cours_loading}>Загрузка...</div>
       ) : (
         <div className={style.courses_box}>
-          {courses.map((item) => {
+          {filteredCourses.map((item) => {
             return (
-              <Course item={item}/>
+              <Course item={item} key={item.id}/>
             );
           })}
         </div>

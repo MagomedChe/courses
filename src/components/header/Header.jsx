@@ -1,27 +1,36 @@
-import React from "react";
+import React from 'react'
 import style from "./style.module.css";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../Authorization/authReducer'
+import { loadCourses} from './actionsHeader'
+import {setFilterText} from './actionsHeader'
 
 function Header(props) {
   const dispatch = useDispatch();
   const user = useSelector(state => state.auth.user);
+  const filter =useSelector(state => state.courses.filter)
 
   const handleLogout = () => {
     dispatch(logout())
   }
-
-
-
+  const handleCourses =()=>{
+    dispatch(loadCourses())
+  }
+  const handleChangeFilter=(e)=>{
+    dispatch(setFilterText(e.target.value))
+  }
   return (
     <div className={style.header}>
       <div className={style.header_line}>
         <NavLink to={"/"} className={style.logo}>
-          Finde
+          <div onClick={handleCourses}>
+            Finde
+          </div>
         </NavLink>
         <div className={style.search}>
-          <input type="text" placeholder="Поиск" />
+          <input type="text" placeholder="Поиск"
+                 value={filter} onChange={handleChangeFilter}/>
           <button>
             <i className="fa fa-search" aria-hidden="true"></i>
           </button>
