@@ -18,8 +18,7 @@ function EditCourse(props) {
   const [categoryId, setCategoryId] = useState(`${course.categoryId}`);
   const history = useHistory();
 
-  useEffect(() => {
-  }, []);
+  useEffect(() => {}, []);
 
   const loading = useSelector((state) => state.courses.selectedLoading);
 
@@ -34,64 +33,64 @@ function EditCourse(props) {
   };
 
   return (
-    <div  className={styles.add_course_page}>
+    <div className={styles.add_course_page}>
       {loading ? (
         <div>Идет загрузка ...</div>
       ) : (
         <div className={styles.add_course_page_box}>
           <div className={styles.add_course_page_block}>
             <span>Название курса</span>
-              <input
-                type="text"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-              />
-            </div>
-            <div className={styles.add_course_page_block}>
-              <span>Адрес</span>
-              <input
-                type="text"
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-              />
-            </div>
-            <div className={styles.add_course_page_block}>
-              <span>Телефон</span>
-              <input
-                type="text"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-              />
-            </div>
-            <div className={styles.add_course_page_block}>
-              <span>Цена</span>
-              <input
-                type="text"
-                value={price}
-                onChange={(e) => setPrice(e.target.value)}
-              />
-            </div>
-            <div className={styles.add_course_page_block}>
-              <span>Категория</span>
-              <select
-                name="categoryId"
-                onChange={(e) => setCategoryId(e.target.value)}
-              >
-                <option value>Выберите категорию</option>
-                <option value={1}>Программирование</option>
-                <option value={2}>Языковые курсы</option>
-                <option value={3}>Веб-дизайнер</option>
-                <option value={4}>Маркетинг</option>
-              </select>
-            </div>
-            <div>
-              <button
-                onClick={() =>
-                  handleEdit(title, address, phone, price, categoryId, id)
-                }
-              >
-                Сохранить
-              </button>
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </div>
+          <div className={styles.add_course_page_block}>
+            <span>Адрес</span>
+            <input
+              type="text"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+            />
+          </div>
+          <div className={styles.add_course_page_block}>
+            <span>Телефон</span>
+            <input
+              type="text"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+          </div>
+          <div className={styles.add_course_page_block}>
+            <span>Цена</span>
+            <input
+              type="text"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+            />
+          </div>
+          <div className={styles.add_course_page_block}>
+            <span>Категория</span>
+            <select
+              name="categoryId"
+              onChange={(e) => setCategoryId(e.target.value)}
+            >
+              <option value>Выберите категорию</option>
+              <option value={1}>Программирование</option>
+              <option value={2}>Языковые курсы</option>
+              <option value={3}>Веб-дизайнер</option>
+              <option value={4}>Маркетинг</option>
+            </select>
+          </div>
+          <div>
+            <button
+              onClick={() =>
+                handleEdit(title, address, phone, price, categoryId, id)
+              }
+            >
+              Сохранить
+            </button>
           </div>
         </div>
       )}

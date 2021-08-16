@@ -3,7 +3,6 @@ import style from "./style.module.css";
 import { NavLink } from "react-router-dom";
 import PrimarySearchAppBar from "../Authorization/LoginProfile";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../Authorization/authReducer";
 import { loadCourses } from "./actionsHeader";
 import { setFilterText } from "./actionsHeader";
 
@@ -12,9 +11,6 @@ function Header(props) {
   const user = useSelector((state) => state.auth.user);
   const filter = useSelector((state) => state.courses.filter);
 
-  const handleLogout = () => {
-    dispatch(logout());
-  };
   const handleCourses = () => {
     dispatch(loadCourses());
   };
@@ -53,6 +49,13 @@ function Header(props) {
           activeClassName={style.active}
         >
           Избранное
+        </NavLink>
+        <NavLink
+            className={style.nav_item}
+            to={"/compare"}
+            activeClassName={style.active}
+        >
+          Сравнение
         </NavLink>
         {!user.token ? (
           <NavLink
