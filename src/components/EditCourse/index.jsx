@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from "../AddCourses/styles.module.css";
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
-import { editCourse, loadCourseChange } from '../../redux/coursesReducer'
+import { editCourse, loadCourseChange } from '../courses/coursesReducer'
 import {loadCourses} from "../../redux/actions";
 
 function EditCourse(props) {

@@ -9,12 +9,68 @@
   ],
   "courses": [
     {
-      "title": "bpvtyasdf",
-      "address": "адрес первого курса",
-      "phone": "11221221",
-      "price": "стоит много",
-      "categoryId": "2",
+      "title": "intocode",
+      "address": "Трошева 7",
+      "phone": "+7 (938) 904-85-33",
+      "price": "10000",
+      "categoryId": 1,
       "id": 1
+    },
+    {
+      "title": "Anglomania",
+      "address": "Трошева 7",
+      "phone": "+7 (928) 000-00-42",
+      "price": "10000",
+      "categoryId": 1,
+      "id": 2
+    },
+    {
+      "title": "intocode",
+      "address": "Трошева 7",
+      "phone": "+7 (938) 904-85-33",
+      "price": "10000",
+      "categoryId": 2,
+      "id": 3
+    },
+    {
+      "title": "Anglomania",
+      "address": "Трошева 7",
+      "phone": "+7 (928) 000-00-42",
+      "price": "10000",
+      "categoryId": 2,
+      "id": 4
+    },
+    {
+      "title": "intocode",
+      "address": "Трошева 7",
+      "phone": "+7 (938) 904-85-33",
+      "price": "10000",
+      "categoryId": 3,
+      "id": 5
+    },
+    {
+      "title": "Anglomania",
+      "address": "Трошева 7",
+      "phone": "+7 (928) 000-00-42",
+      "price": "10000",
+      "categoryId": 3,
+      "id": 6
+    },
+    {
+      "title": "intocode",
+      "address": "Трошева 7",
+      "phone": "+7 (938) 904-85-33",
+      "price": "10000",
+      "categoryId": 4,
+      "id": 7
+    },
+    {
+      "title": "Anglomania",
+      "address": "Трошева 7",
+      "phone": "+7 (928) 000-00-42",
+      "price": "10000",
+      "categoryId": 4,
+      "id": 8
     }
   ],
   "callback": [
@@ -105,22 +161,22 @@
   ],
   "categories": [
     {
-      "id": "1",
+      "id": 1,
       "title": "Програмирование",
       "image": "https://mir-s3-cdn-cf.behance.net/projects/max_808/69910487563309.Y3JvcCw4OTksNzAzLDAsMTA2.png"
     },
     {
-      "id": "2",
+      "id": 2,
       "title": "Языковые курсы",
       "image": "https://img5.lalafo.com/i/posters/original/b1/29/16/repetitor-angliiskogo-yazyka-na-domu-79374065_image-1.jpeg"
     },
     {
-      "id": "3",
+      "id": 3,
       "title": "Веб-Дизайнер",
       "image": "https://sun9-37.userapi.com/c858532/v858532326/1e389c/54SiLpQzZq4.jpg"
     },
     {
-      "id": "4",
+      "id": 4,
       "title": "Маркеттинг",
       "image": "https://static.tildacdn.com/tild3839-3533-4566-b535-383964666363/Branding1.png"
     }

@@ -1,15 +1,14 @@
-import { COURSES_LOAD_START } from "./type";
-import { COURSES_LOAD_SUCCESS } from "./type";
-import { COURSES_SELECTED } from "./type";
-
+import { COURSES_LOAD_START, SELECTED_CATEGORY_LOAD_SUCCESS } from '../../redux/type'
+import { COURSES_LOAD_SUCCESS } from "../../redux/type";
+import { COURSES_SELECTED } from "../../redux/type";
 const initState = {
   courses: [],
   comments: [],
   commentsLoad: false,
   loading: false,
   coursesSelected: "",
+  filter: "",
   coursesSelectedLoad: true,
-
   selectedEditCourse: {},
   selectedLoading: false,
   deleting: false
@@ -22,6 +21,17 @@ export const coursesReducer = (state = initState, action) => {
         ...state,
         loading: true,
       };
+    case COURSES_LOAD_SUCCESS:
+      return {
+        ...state,
+        courses: action.payload,
+        loading: false,
+      };
+    case SELECTED_CATEGORY_LOAD_SUCCESS:
+      return {
+        ...state,
+        courses: action.payload
+      }
     case "comment/load/start":
       return {
         ...state,
@@ -38,12 +48,7 @@ export const coursesReducer = (state = initState, action) => {
         ...state,
         comments: [...state.comments, action.payload],
       };
-    case COURSES_LOAD_SUCCESS:
-      return {
-        ...state,
-        courses: action.payload,
-        loading: false,
-      };
+
     case COURSES_SELECTED:
       return {
         ...state,
@@ -52,7 +57,6 @@ export const coursesReducer = (state = initState, action) => {
         ),
         coursesSelectedLoad: false,
       };
-
     case 'course/add/start':
       return {
         ...state,
@@ -94,7 +98,6 @@ export const coursesReducer = (state = initState, action) => {
           return course;
         })
       }
-
     case 'course/delete/success':
       return {
         ...state,
@@ -105,7 +108,11 @@ export const coursesReducer = (state = initState, action) => {
           return false
         })
       }
-
+    case 'filter/set':
+      return {
+        ...state,
+        filter: action.payload
+      }
     default:
       return {
         ...state,

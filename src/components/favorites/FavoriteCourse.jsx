@@ -1,18 +1,15 @@
 import React from "react";
 import style from "./favorite.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { DELETED_FAVORITE } from "../../redux/type";
+import { deleteFavorite } from './actionsFavorites'
 
 function FavoriteCourse({ item }) {
   const favorite = useSelector((state) => state.favorites.items);
   const dispatch = useDispatch();
 
-  const removeFavorite = (id) => {
-    dispatch({
-      type: DELETED_FAVORITE,
-      payload: id,
-    });
-  };
+  const removeFavorite =(id)=>{
+    dispatch(deleteFavorite(id))
+  }
 
   return (
     <div>

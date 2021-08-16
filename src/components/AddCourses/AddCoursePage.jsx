@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./styles.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { AddCourse } from "../../redux/coursesReducer";
+import { AddCourse } from "../courses/coursesReducer";
 import { useHistory } from "react-router-dom";
 
 function AddCoursePage(props) {

@@ -1,4 +1,3 @@
-import HomePage from "./HomePage";
 import "../style.css";
 import Header from "./header/Header";
 import React, { useState } from "react";
@@ -11,6 +10,7 @@ import Authorization from './Authorization'
 import AddCoursePage from './AddCourses/AddCoursePage'
 import { useSelector } from 'react-redux'
 import EditCourse from './EditCourse'
+import HomePage from './HomePage'
 
 function App() {
   const [youCity, setYouCity] = useState("Москва");

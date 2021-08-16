@@ -5,20 +5,29 @@ import { ADDED_FAVORITE, COURSES_SELECTED } from '../../redux/type'
 import { useDispatch, useSelector } from 'react-redux'
 import { getComments } from '../../redux/actions'
 import DeletedCourse from '../DeletedCourse'
+import { addToComparison } from '../compare/actionsCompare'
+
 
 function Course ({ item }) {
   const favorites = useSelector(state => state.favorites.items);
+  const compare = useSelector(state => state.compare.compare);
   const token = useSelector(state => state.auth.user.token);
-
   const dispatch = useDispatch();
   const history = useHistory();
+  const handleCompare=(id)=>{
+    if (compare.length < 2){
+      dispatch(addToComparison(id))
+    }
+  }
 
-  const handleFavorites = (item) => {
-    dispatch({
-      type: ADDED_FAVORITE,
-      payload: item,
-    });
-  };
+
+  const handleFavorites=(item)=>{
+      dispatch({
+        type: ADDED_FAVORITE,
+        payload: item
+      })
+  }
+
   const handleClick = (id) => {
     dispatch({
       type: COURSES_SELECTED,
@@ -46,6 +55,11 @@ function Course ({ item }) {
         <button onClick={()=>handleFavorites(item)}>{favorites.find(elment=>elment.id ===item.id)?'В избранном': 'В избранное'}</button>
         <button>Сравнить</button>
         <button onClick={() => handleClick(item.id)}>Отзывы</button>
+        <div  onClick={()=>handleFavorites(item)}>
+          {favorites.find(elment=>elment.id ===item.id)?'В избранном': 'В избранное'}
+        </div>
+        <div onClick={() => handleCompare(item.id)}>Сравнить</div>
+        <div onClick={() => handleClick(item.id)}>Отзывы</div>
       </div>
     </div>
   );

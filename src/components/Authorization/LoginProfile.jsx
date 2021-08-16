@@ -8,7 +8,7 @@ import Menu from "@material-ui/core/Menu";
 
 import AccountCircle from "@material-ui/icons/AccountCircle";
 
-import { logout } from "../../redux/authReducer";
+import { logout } from "./authReducer";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 
