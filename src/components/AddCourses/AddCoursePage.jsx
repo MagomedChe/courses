@@ -21,47 +21,46 @@ function AddCoursePage(props) {
   };
 
   return (
-    <div>
+    <div className={styles.add_course_page}>
       {loading ? (
         <div>wait</div>
       ) : (
-        <div className={styles.blockAuth}>
-          <div className={styles.authForm}>
-            Название курса
+        <div className={styles.add_course_page_box}>
+          <div className={styles.add_course_page_block}>
+            <span>Название курса</span>
             <input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
-          <div className={styles.authForm}>
-            Адрес
+          <div className={styles.add_course_page_block}>
+            <span>Адрес</span>
             <input
               type="text"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
             />
           </div>
-          <div className={styles.authForm}>
-            Телефон
+          <div className={styles.add_course_page_block}>
+            <span>Телефон</span>
             <input
               type="text"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
             />
           </div>
-          <div className={styles.authForm}>
-            Цена
+          <div className={styles.add_course_page_block}>
+            <span>Цена</span>
             <input
               type="text"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
             />
           </div>
-          <div className={styles.authForm}>
-            Категория
+          <div className={styles.add_course_page_block}>
+            <span>Категория</span>
             <select
-              className={styles.authForm}
               name="categoryId"
               onChange={(e) => setCategoryId(e.target.value)}
             >

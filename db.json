@@ -9,28 +9,12 @@
   ],
   "courses": [
     {
-      "title": "intocode",
+      "title": "intocodesddssfsdfs",
       "address": "Трошева 7",
       "phone": "+7 (938) 904-85-33",
       "price": "10000",
-      "categoryId": 1,
+      "categoryId": "1",
       "id": 1
-    },
-    {
-      "title": "Anglomania",
-      "address": "Трошева 7",
-      "phone": "+7 (928) 000-00-42",
-      "price": "10000",
-      "categoryId": 1,
-      "id": 2
-    },
-    {
-      "title": "intocode",
-      "address": "Трошева 7",
-      "phone": "+7 (938) 904-85-33",
-      "price": "10000",
-      "categoryId": 2,
-      "id": 3
     },
     {
       "title": "Anglomania",

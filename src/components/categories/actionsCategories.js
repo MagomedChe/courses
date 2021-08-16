@@ -1,7 +1,7 @@
 import {
   SELECTED_CATEGORY_LOAD_START,
-  SELECTED_CATEGORY_LOAD_SUCCESS
-} from '../../redux/type'
+  SELECTED_CATEGORY_LOAD_SUCCESS,
+} from "../../redux/type";
 
 export const selectedCategory = (id) => {
   return (dispatch) => {
