@@ -10,6 +10,11 @@ export const compare = (state = intState, action) => {
         ...state,
         loading: true,
       };
+    case "compare/delete":
+      return {
+        ...state,
+        compare: state.compare.filter(item => item.id !== action.payload)
+      }
     case "compare/load/success":
       return {
         ...state,

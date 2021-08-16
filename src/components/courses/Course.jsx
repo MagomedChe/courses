@@ -13,6 +13,7 @@ function Course({ item }) {
   const token = useSelector((state) => state.auth.user.token);
   const dispatch = useDispatch();
   const history = useHistory();
+
   const handleCompare = (id) => {
     if (compare.length < 2) {
       dispatch(addToComparison(id));
@@ -56,7 +57,7 @@ function Course({ item }) {
             ? "В избранном"
             : "В избранное"}
         </button>
-        <button>Сравнить</button>
+        <button onClick={()=>handleCompare(item.id)}>Сравнить</button>
         <button onClick={() => handleClick(item.id)}>Отзывы</button>
       </div>
     </div>

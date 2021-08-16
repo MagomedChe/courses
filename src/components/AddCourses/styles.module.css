@@ -15,11 +15,11 @@
   padding: 20px;
   background-color: white;
 }
-.add_course_page_box span{
+.add_course_page_box span {
   width: 150px;
   display: inline-block;
 }
-.add_course_page_block{
+.add_course_page_block {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,7 +27,6 @@
   border-radius: 5px;
   margin-bottom: 10px;
   box-shadow: 1px 0 15px rgba(0, 0, 0, 0.5);
-
 }
 .add_course_page_box input,
 option {

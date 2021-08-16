@@ -11,6 +11,7 @@ import AddCoursePage from "./AddCourses/AddCoursePage";
 import { useSelector } from "react-redux";
 import EditCourse from "./EditCourse";
 import HomePage from "./HomePage";
+import Compare from "./compare/Compare";
 
 function App() {
   const [youCity, setYouCity] = useState("Грозный");
@@ -51,6 +52,9 @@ function App() {
         </Route>
         <Route path="/favorites">
           <Favorites />
+        </Route>
+        <Route path="/compare">
+          <Compare />
         </Route>
         {addCourse}
       </Switch>
