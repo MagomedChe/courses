@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import FavoriteCourse from "./FavoriteCourse";
-import style from "./favorites.module.css";
+import style from "./favorite.module.css";
 
 function Favorites(props) {
-  const dispatch = useDispatch();
   const favorites = useSelector((state) => state.favorites.items);
   const loading = useSelector((state) => state.courses.loading);
 

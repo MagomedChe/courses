@@ -2,8 +2,8 @@ import {
   CATEGORIES_LOAD_START,
   CATEGORIES_LOAD_SUCCESS,
   COURSES_LOAD_START,
-  COURSES_LOAD_SUCCESS
-} from '../../redux/type'
+  COURSES_LOAD_SUCCESS,
+} from "../../redux/type";
 
 export const loadCourses = () => {
   return (dispatch) => {

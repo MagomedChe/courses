@@ -1,11 +1,11 @@
-import { COURSES_LOAD_START, COURSES_LOAD_SUCCESS } from '../../redux/type'
+import { COURSES_LOAD_START, COURSES_LOAD_SUCCESS } from "../../redux/type";
 
-export const setFilterText=(text)=>{
+export const setFilterText = (text) => {
   return {
-    type: 'filter/set',
-    payload: text
-  }
-}
+    type: "filter/set",
+    payload: text,
+  };
+};
 
 export const loadCourses = () => {
   return (dispatch) => {

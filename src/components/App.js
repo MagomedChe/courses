@@ -6,42 +6,31 @@ import Favorites from "./favorites/Favorites";
 import { Redirect, Route, Switch } from "react-router-dom";
 import Comments from "./comments/Comments";
 import SelectCity from "./selectCity/SelectCity";
-import Authorization from './Authorization'
-import AddCoursePage from './AddCourses/AddCoursePage'
-import { useSelector } from 'react-redux'
-import EditCourse from './EditCourse'
-import HomePage from './HomePage'
+import Authorization from "./Authorization";
+import AddCoursePage from "./AddCourses/AddCoursePage";
+import { useSelector } from "react-redux";
+import EditCourse from "./EditCourse";
+import HomePage from "./HomePage";
 
 function App() {
-  const [youCity, setYouCity] = useState("Москва");
-  const token = useSelector(state => state.auth.user.token);
-
-  // const history = useHistory();
-  // const [title, setTitle] = useState('');
-  // const [address, setAddress] = useState('');
-  // const [phone, setPhone] = useState('');
-  // const [price, setPrice] = useState('');
-  // const [categoryId, setCategoryId] = useState('');
-
+  const [youCity, setYouCity] = useState("Грозный");
+  const token = useSelector((state) => state.auth.user.token);
 
   let addCourse;
 
-  if (token){
+  if (token) {
     addCourse = (
       <Switch>
         <Route path="/addCourse">
           <AddCoursePage />
         </Route>
         <Route path="/editCourse/:id">
-          <EditCourse/>
+          <EditCourse />
         </Route>
       </Switch>
     );
-  }
-  else {
-    addCourse = (
-      <Redirect to="/"/>
-    )
+  } else {
+    addCourse = <Redirect to="/" />;
   }
 
   return (

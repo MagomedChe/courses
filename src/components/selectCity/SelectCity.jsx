@@ -19,7 +19,6 @@ export default function SimpleMap(props) {
       alert("Введите название");
     } else {
       props.setYouCity(addCity);
-
     }
   };
 

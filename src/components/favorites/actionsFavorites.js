@@ -1,8 +1,8 @@
-import { DELETED_FAVORITE } from '../../redux/type'
+import { DELETED_FAVORITE } from "../../redux/type";
 
-export const deleteFavorite = (id) =>{
-  return ({
+export const deleteFavorite = (id) => {
+  return {
     type: DELETED_FAVORITE,
-    payload: id
-  })
-}
+    payload: id,
+  };
+};

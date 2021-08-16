@@ -1,7 +1,7 @@
 import React from "react";
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from "react-redux";
 import style from "./style.module.css";
-import Category from './Category'
+import Category from "./Category";
 
 function Categories(props) {
   const categories = useSelector((state) => state.categories.item);
@@ -15,7 +15,7 @@ function Categories(props) {
       ) : (
         <div className={style.categories_box}>
           {categories.map((category) => {
-            return <Category category={category} key={category.id}/>
+            return <Category category={category} key={category.id} />;
           })}
         </div>
       )}
