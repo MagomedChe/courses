@@ -55,11 +55,7 @@ function Course ({ item }) {
         <button onClick={()=>handleFavorites(item)}>{favorites.find(elment=>elment.id ===item.id)?'В избранном': 'В избранное'}</button>
         <button>Сравнить</button>
         <button onClick={() => handleClick(item.id)}>Отзывы</button>
-        <div  onClick={()=>handleFavorites(item)}>
-          {favorites.find(elment=>elment.id ===item.id)?'В избранном': 'В избранное'}
-        </div>
-        <div onClick={() => handleCompare(item.id)}>Сравнить</div>
-        <div onClick={() => handleClick(item.id)}>Отзывы</div>
+
       </div>
     </div>
   );
