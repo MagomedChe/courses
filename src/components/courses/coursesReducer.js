@@ -123,7 +123,7 @@ export const coursesReducer = (state = initState, action) => {
 export const AddCourse = (title, address, phone, price, categoryId) => {
   return (dispatch) => {
     dispatch({ type: "course/add/start" });
-    fetch("http://localhost:3001/courses", {
+    fetch("/courses", {
       method: "POST",
       body: JSON.stringify({
         title,
@@ -155,7 +155,7 @@ export const AddCourse = (title, address, phone, price, categoryId) => {
 export const loadCourseChange = (id) => {
   return (dispatch) => {
     dispatch({ type: "select/load/start" });
-    fetch(`http://localhost:3001/courses/${id}`)
+    fetch(`/courses/${id}`)
       .then((response) => response.json())
       .then((json) => {
         dispatch({
@@ -174,7 +174,7 @@ export const loadCourseChange = (id) => {
 
 export const editCourse = (title, address, phone, price, categoryId, id) => {
   return () => {
-    fetch(`http://localhost:3001/courses/${id}`, {
+    fetch(`/courses/${id}`, {
       method: "PATCH",
       body: JSON.stringify({
         title,
@@ -208,7 +208,7 @@ export const deleteCourse = (id) => {
       type: "course/delete/start",
       payload: id,
     });
-    fetch(`http://localhost:3001/courses/${id}`, {
+    fetch(`/courses/${id}`, {
       method: "DELETE",
     })
       .then((response) => response.json())

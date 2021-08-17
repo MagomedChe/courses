@@ -8,7 +8,7 @@ export const selectedCategory = (id) => {
     dispatch({
       type: SELECTED_CATEGORY_LOAD_START,
     });
-    fetch(`http://localhost:3001/courses/?categoryId=${id}`)
+    fetch(`/courses/?categoryId=${id}`)
       .then((response) => response.json())
       .then((json) => {
         dispatch({

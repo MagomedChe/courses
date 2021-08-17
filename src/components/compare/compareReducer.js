@@ -5,7 +5,7 @@ const intState = {
 
 export const compare = (state = intState, action) => {
   switch (action.type) {
-    case "campare/load/start":
+    case "compare/load/start":
       return {
         ...state,
         loading: true,

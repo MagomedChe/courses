@@ -47,7 +47,7 @@ export const authAdmin = (login, pass, history) => {
   return (dispatch) => {
     dispatch({ type: "auth/start" });
 
-    fetch("http://localhost:3001/auth", {
+    fetch("/auth", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

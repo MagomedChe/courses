@@ -3,7 +3,7 @@ export const addToComparison = (id) => {
     dispatch({
       type: "compare/load/start",
     });
-    fetch(`http://localhost:3001/courses/${id}`)
+    fetch(`/courses/${id}`)
       .then((response) => response.json())
       .then((json) => {
         console.log(json);

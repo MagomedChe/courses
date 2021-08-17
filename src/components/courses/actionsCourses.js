@@ -10,7 +10,7 @@ export const loadCourses = () => {
     dispatch({
       type: COURSES_LOAD_START,
     });
-    fetch(`http://localhost:3001/courses`)
+    fetch(`/courses`)
       .then((response) => response.json())
       .then((json) => {
         dispatch({
