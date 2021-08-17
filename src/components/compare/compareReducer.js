@@ -13,8 +13,8 @@ export const compare = (state = intState, action) => {
     case "compare/delete":
       return {
         ...state,
-        compare: state.compare.filter(item => item.id !== action.payload)
-      }
+        compare: state.compare.filter((item) => item.id !== action.payload),
+      };
     case "compare/load/success":
       return {
         ...state,

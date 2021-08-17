@@ -51,9 +51,9 @@ function Header(props) {
           Избранное
         </NavLink>
         <NavLink
-            className={style.nav_item}
-            to={"/compare"}
-            activeClassName={style.active}
+          className={style.nav_item}
+          to={"/compare"}
+          activeClassName={style.active}
         >
           Сравнение
         </NavLink>

@@ -57,7 +57,7 @@ function Course({ item }) {
             ? "В избранном"
             : "В избранное"}
         </button>
-        <button onClick={()=>handleCompare(item.id)}>Сравнить</button>
+        <button onClick={() => handleCompare(item.id)}>Сравнить</button>
         <button onClick={() => handleClick(item.id)}>Отзывы</button>
       </div>
     </div>
