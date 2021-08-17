@@ -1,5 +1,5 @@
-import { CATEGORIES_LOAD_START } from "./type";
-import { CATEGORIES_LOAD_SUCCESS } from "./type";
+import { CATEGORIES_LOAD_START } from "../../redux/type";
+import { CATEGORIES_LOAD_SUCCESS } from "../../redux/type";
 
 const initState = {
   item: [],

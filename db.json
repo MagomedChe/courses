@@ -9,35 +9,19 @@
   ],
   "courses": [
     {
-      "title": "asdafgdfsgsdg",
-      "address": "undefined",
-      "phone": "undefined",
-      "price": "undefined",
-      "categoryId": "undefined",
-      "id": 1
-    },
-    {
-      "title": "второй отредактированый курс",
-      "address": "фывафыва",
-      "phone": "фыва",
-      "price": "йцукцйук",
-      "categoryId": "3",
-      "id": 2
-    },
-    {
-      "title": "курсы по придумыванию названий переменным и функциям",
-      "address": "Трошева, 7",
-      "phone": "Ипхоне",
-      "price": "тыщ мильон",
+      "title": "intocodesddssfsdfs",
+      "address": "Трошева 7",
+      "phone": "+7 (938) 904-85-33",
+      "price": "10000",
       "categoryId": "1",
-      "id": 3
+      "id": 1
     },
     {
       "title": "Anglomania",
       "address": "Трошева 7",
       "phone": "+7 (928) 000-00-42",
       "price": "10000",
-      "categoryId": "2",
+      "categoryId": 2,
       "id": 4
     },
     {
@@ -45,7 +29,7 @@
       "address": "Трошева 7",
       "phone": "+7 (938) 904-85-33",
       "price": "10000",
-      "categoryId": "3",
+      "categoryId": 3,
       "id": 5
     },
     {
@@ -53,32 +37,24 @@
       "address": "Трошева 7",
       "phone": "+7 (928) 000-00-42",
       "price": "10000",
-      "categoryId": "3",
+      "categoryId": 3,
       "id": 6
     },
     {
-      "title": "33",
-      "address": "3",
-      "phone": "undefined",
-      "price": "3",
-      "categoryId": "2",
+      "title": "intocode",
+      "address": "Трошева 7",
+      "phone": "+7 (938) 904-85-33",
+      "price": "10000",
+      "categoryId": "1",
       "id": 7
     },
     {
-      "title": "bpvtyasdf",
-      "address": "адрес первого курса",
-      "phone": "11221221",
-      "price": "стоит много",
-      "categoryId": "2",
+      "title": "Anglomania",
+      "address": "Трошева 7",
+      "phone": "+7 (928) 000-00-42",
+      "price": "10000",
+      "categoryId": 4,
       "id": 8
-    },
-    {
-      "title": "Новый курс",
-      "address": "фывлда",
-      "phone": "й34325",
-      "price": "23454325",
-      "categoryId": "3",
-      "id": 9
     }
   ],
   "callback": [
@@ -169,22 +145,22 @@
   ],
   "categories": [
     {
-      "id": "1",
+      "id": 1,
       "title": "Програмирование",
       "image": "https://mir-s3-cdn-cf.behance.net/projects/max_808/69910487563309.Y3JvcCw4OTksNzAzLDAsMTA2.png"
     },
     {
-      "id": "2",
+      "id": 2,
       "title": "Языковые курсы",
       "image": "https://img5.lalafo.com/i/posters/original/b1/29/16/repetitor-angliiskogo-yazyka-na-domu-79374065_image-1.jpeg"
     },
     {
-      "id": "3",
+      "id": 3,
       "title": "Веб-Дизайнер",
       "image": "https://sun9-37.userapi.com/c858532/v858532326/1e389c/54SiLpQzZq4.jpg"
     },
     {
-      "id": "4",
+      "id": 4,
       "title": "Маркеттинг",
       "image": "https://static.tildacdn.com/tild3839-3533-4566-b535-383964666363/Branding1.png"
     }

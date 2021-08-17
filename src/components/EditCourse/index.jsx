@@ -1,80 +1,78 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import styles from "../AddCourses/styles.module.css";
-import { useDispatch, useSelector } from 'react-redux'
-import { useHistory, useParams } from 'react-router-dom'
-import { editCourse, loadCourseChange } from '../../redux/coursesReducer'
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory, useParams } from "react-router-dom";
+import { editCourse } from "../courses/coursesReducer";
 
 function EditCourse(props) {
   const dispatch = useDispatch();
   const id = parseInt(useParams().id);
 
-  const selectedEditCourse = useSelector((state) => state.courses.selectedEditCourse);
-  const loading = useSelector((state) => state.courses.loading)
+  const courses = useSelector((state) => state.courses.courses);
+  const course = courses.find((course) => course.id === id);
 
+  const [title, setTitle] = useState(`${course.title}`);
+  const [address, setAddress] = useState(`${course.address}`);
+  const [phone, setPhone] = useState(`${course.phone}`);
+  const [price, setPrice] = useState(`${course.price}`);
+  const [categoryId, setCategoryId] = useState(`${course.categoryId}`);
   const history = useHistory();
 
-  useEffect(() => {
-    dispatch(loadCourseChange(id))
-  },[])
+  useEffect(() => {}, []);
 
-
-  const [title, setTitle] = useState(`${selectedEditCourse.title}`);
-  const [address, setAddress] = useState(`${selectedEditCourse.address}`);
-  const [phone, setPhone] = useState(`${selectedEditCourse.phone}`);
-  const [price, setPrice] = useState(`${selectedEditCourse.price}`);
-  const [categoryId, setCategoryId] = useState(`${selectedEditCourse.categoryId}`);
-
+  const loading = useSelector((state) => state.courses.selectedLoading);
 
   const handleEdit = (title, address, phone, price, categoryId, id) => {
     dispatch(editCourse(title, address, phone, price, categoryId, id));
-    history.push('/')
-    setTitle('');
-    setAddress('');
-    setPhone('');
-    setPrice('');
-    setCategoryId('');
-  }
+    history.push("/");
+    setTitle("");
+    setAddress("");
+    setPhone("");
+    setPrice("");
+    setCategoryId("");
+  };
 
   return (
-    <div className={styles.blockAuth}>
-      {loading ? (<div>Идет загрузка ...</div>) : (
-        <div>
-          <div className={styles.authForm}>
-            Название курса
+    <div className={styles.add_course_page}>
+      {loading ? (
+        <div>Идет загрузка ...</div>
+      ) : (
+        <div className={styles.add_course_page_box}>
+          <div className={styles.add_course_page_block}>
+            <span>Название курса</span>
             <input
               type="text"
               value={title}
-              onChange={e => setTitle(e.target.value)}
+              onChange={(e) => setTitle(e.target.value)}
             />
           </div>
-          <div className={styles.authForm}>
-            Адрес
+          <div className={styles.add_course_page_block}>
+            <span>Адрес</span>
             <input
               type="text"
               value={address}
-              onChange={e => setAddress(e.target.value)}
+              onChange={(e) => setAddress(e.target.value)}
             />
           </div>
-          <div className={styles.authForm}>
-            Телефон
+          <div className={styles.add_course_page_block}>
+            <span>Телефон</span>
             <input
               type="text"
               value={phone}
-              onChange={e => setPhone(e.target.value)}
+              onChange={(e) => setPhone(e.target.value)}
             />
           </div>
-          <div className={styles.authForm}>
-            Цена
+          <div className={styles.add_course_page_block}>
+            <span>Цена</span>
             <input
               type="text"
               value={price}
-              onChange={e => setPrice(e.target.value)}
+              onChange={(e) => setPrice(e.target.value)}
             />
           </div>
-          <div className={styles.authForm}>
-            Категория
+          <div className={styles.add_course_page_block}>
+            <span>Категория</span>
             <select
-              className={styles.authForm}
               name="categoryId"
               onChange={(e) => setCategoryId(e.target.value)}
             >
@@ -86,13 +84,16 @@ function EditCourse(props) {
             </select>
           </div>
           <div>
-            <button onClick={() => handleEdit(title, address, phone, price, categoryId, id)}>
+            <button
+              onClick={() =>
+                handleEdit(title, address, phone, price, categoryId, id)
+              }
+            >
               Сохранить
             </button>
           </div>
         </div>
       )}
-
     </div>
   );
 }
