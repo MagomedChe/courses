@@ -25,7 +25,7 @@ export const getCategories = () => {
     dispatch({
       type: CATEGORIES_LOAD_START,
     });
-    fetch(`http://localhost:3001/categories`)
+    fetch(`/categories`)
       .then((response) => response.json())
       .then((json) => {
         dispatch({

@@ -45,7 +45,7 @@
       "address": "Трошева 7",
       "phone": "+7 (938) 904-85-33",
       "price": "10000",
-      "categoryId": 4,
+      "categoryId": "1",
       "id": 7
     },
     {
