@@ -18,7 +18,6 @@ function EditCourse(props) {
   const [categoryId, setCategoryId] = useState(`${course.categoryId}`);
   const history = useHistory();
 
-  useEffect(() => {}, []);
 
   const loading = useSelector((state) => state.courses.selectedLoading);
 
