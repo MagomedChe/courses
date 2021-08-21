@@ -6,7 +6,7 @@ function Compare(props) {
   const dispatch = useDispatch();
   const compare = useSelector((state) => state.compare.compare);
   const handleClick = (id) => {
-    dispatch({ type: "compare/delete", payload: id });
+    dispatch({ type: "Compare/delete", payload: id });
   };
 
   return (

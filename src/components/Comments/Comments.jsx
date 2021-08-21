@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import style from "./style.module.css";
-import AddComment from "../addComment/AddComment";
+import AddComment from "../AddComment/AddComment";
 import Comment from "./Comment";
 
 function Comments(props) {

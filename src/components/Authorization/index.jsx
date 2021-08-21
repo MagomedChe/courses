@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./styles.module.css";
 import { useHistory } from "react-router-dom";
-import { authAdmin } from "./authReducer";
+import { authAdmin} from './authReducer'
 
 function Authorization(props) {
   const dispatch = useDispatch();

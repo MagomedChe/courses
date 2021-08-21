@@ -1,17 +1,17 @@
 import "../style.css";
-import Header from "./header/Header";
+import Header from "./Header/Header";
 import React, { useState } from "react";
-import Footer from "./footer/Footer";
-import Favorites from "./favorites/Favorites";
+import Footer from "./Footer/Footer";
+import Favorites from "./Favorites/Favorites";
 import { Redirect, Route, Switch } from "react-router-dom";
-import Comments from "./comments/Comments";
-import SelectCity from "./selectCity/SelectCity";
+import Comments from "./Comments/Comments";
+import SelectCity from "./SelectCity/SelectCity";
 import Authorization from "./Authorization";
 import AddCoursePage from "./AddCourses/AddCoursePage";
 import { useSelector } from "react-redux";
 import EditCourse from "./EditCourse";
 import HomePage from "./HomePage";
-import Compare from "./compare/Compare";
+import Compare from "./Compare/Compare";
 
 function App() {
   const [youCity, setYouCity] = useState("Грозный");
@@ -41,7 +41,7 @@ function App() {
         <Route exact path={"/"}>
           <HomePage />
         </Route>
-        <Route path={"/comments"}>
+        <Route path={"/Comments"}>
           <Comments />
         </Route>
         <Route path={"/auth"}>

@@ -45,14 +45,14 @@ function Header(props) {
         </NavLink>
         <NavLink
           className={style.nav_item}
-          to={"/favorites"}
+          to={"/Favorites"}
           activeClassName={style.active}
         >
           Избранное
         </NavLink>
         <NavLink
           className={style.nav_item}
-          to={"/compare"}
+          to={"/Compare"}
           activeClassName={style.active}
         >
           Сравнение

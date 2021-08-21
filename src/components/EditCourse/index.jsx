@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "../AddCourses/styles.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { editCourse } from "../courses/coursesReducer";
+import { editCourse } from "../Courses/coursesReducer";
 
 function EditCourse(props) {
   const dispatch = useDispatch();
