@@ -3,7 +3,7 @@ import thunk from "redux-thunk";
 import { coursesReducer } from "../components/Courses/coursesReducer";
 import { categoriesReducer } from "../components/Categories/categoriesReducer";
 import { favoritesReducer } from "../components/Favorites/favoritesReducer";
-import { auth } from '../components/Authorization/authReducer'
+import { auth } from  '../components/Authorization/authReducer'
 import { compare } from "../components/Compare/compareReducer";
 const { createLogger } = require("redux-logger");
 const logger = createLogger({
