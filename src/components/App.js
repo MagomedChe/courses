@@ -7,11 +7,11 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import Comments from "./comments/Comments";
 import SelectCity from "./selectCity/SelectCity";
 import Authorization from "./Authorization";
-import AddCoursePage from "./AddCourses/AddCoursePage";
 import { useSelector } from "react-redux";
 import EditCourse from "./EditCourse";
 import HomePage from "./HomePage";
 import Compare from "./compare/Compare";
+import AddCoursePage from './AddCourses'
 
 function App() {
   const [youCity, setYouCity] = useState("Грозный");
