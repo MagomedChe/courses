@@ -1,4 +1,4 @@
-import { COURSES_LOAD_START, COURSES_LOAD_SUCCESS } from "../../redux/type";
+import { COURSES_LOAD_START, COURSES_LOAD_SUCCESS } from "../../redux/types";
 
 export const setFilterText = (text) => {
   return {

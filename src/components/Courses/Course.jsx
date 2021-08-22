@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./courses.module.css";
 import { useHistory } from "react-router-dom";
-import { ADDED_FAVORITE, COURSES_SELECTED } from "../../redux/type";
+import { ADDED_FAVORITE, COURSES_SELECTED } from "../../redux/types";
 import { useDispatch, useSelector } from "react-redux";
 import { getComments } from "../../redux/actions";
 import DeletedCourse from "../DeletedCourse";

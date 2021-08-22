@@ -1,11 +1,12 @@
 import React from 'react'
 import style from './style.module.css'
 import { useDispatch } from 'react-redux'
+import { COMPARE_DELETE } from '../../redux/types'
 
 function Compare ({ item }) {
   const dispatch = useDispatch();
   const handleClick = (id) => {
-    dispatch({ type: "Compare/delete", payload: id });
+    dispatch({ type: COMPARE_DELETE, payload: id });
   };
   return (
     <div className={style.compare_page_item} key={item.id}>

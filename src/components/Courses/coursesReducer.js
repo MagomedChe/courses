@@ -1,9 +1,14 @@
 import {
-  COURSES_LOAD_START,
-  SELECTED_CATEGORY_LOAD_SUCCESS,
-} from "../../redux/type";
-import { COURSES_LOAD_SUCCESS } from "../../redux/type";
-import { COURSES_SELECTED } from "../../redux/type";
+  ADD_NEW_COMMENT,
+  COMMENT_LOAD_START, COMMENT_LOAD_SUCCESS,
+  COURSE_ADD_START, COURSE_ADD_SUCCESS,
+  COURSE_DELETE_START, COURSE_DELETE_SUCCESS,
+  COURSES_LOAD_START, COURSES_LOAD_SUCCESS,
+  COURSES_SELECTED, FILTER_SET,
+  SELECT_LOAD_START, SELECT_LOAD_SUCCESS,
+  SELECTED_CATEGORY_LOAD_SUCCESS
+} from '../../redux/types'
+
 const initState = {
   courses: [],
   comments: [],
@@ -34,18 +39,18 @@ export const coursesReducer = (state = initState, action) => {
         ...state,
         courses: action.payload,
       };
-    case "comment/load/start":
+    case COMMENT_LOAD_START:
       return {
         ...state,
         commentsLoad: true,
       };
-    case "comment/load/success":
+    case COMMENT_LOAD_SUCCESS:
       return {
         ...state,
         comments: action.payload,
         commentsLoad: false,
       };
-    case "add/new/comment":
+    case ADD_NEW_COMMENT:
       return {
         ...state,
         comments: [...state.comments, action.payload],
@@ -59,33 +64,33 @@ export const coursesReducer = (state = initState, action) => {
         ),
         coursesSelectedLoad: false,
       };
-    case "course/add/start":
+    case COURSE_ADD_START:
       return {
         ...state,
         loading: true,
       };
 
-    case "course/add/success":
+    case COURSE_ADD_SUCCESS:
       return {
         courses: action.payload,
         ...state,
         loading: false,
       };
 
-    case "select/load/start":
+    case SELECT_LOAD_START:
       return {
         ...state,
         selectedLoading: true,
       };
 
-    case "select/load/success":
+    case SELECT_LOAD_SUCCESS:
       return {
         ...state,
         selectedEditCourse: action.payload,
         selectedLoading: false,
       };
 
-    case "course/delete/start":
+    case COURSE_DELETE_START:
       return {
         ...state,
         courses: state.courses.map((course) => {
@@ -98,7 +103,7 @@ export const coursesReducer = (state = initState, action) => {
           return course;
         }),
       };
-    case "course/delete/success":
+    case COURSE_DELETE_SUCCESS:
       return {
         ...state,
         courses: state.courses.filter((course) => {
@@ -108,7 +113,7 @@ export const coursesReducer = (state = initState, action) => {
           return false;
         }),
       };
-    case "filter/set":
+    case FILTER_SET:
       return {
         ...state,
         filter: action.payload,
@@ -122,7 +127,7 @@ export const coursesReducer = (state = initState, action) => {
 
 export const AddCourse = (title, address, phone, price, categoryId) => {
   return (dispatch) => {
-    dispatch({ type: "course/add/start" });
+    dispatch({ type: COURSE_ADD_START });
     fetch("/courses", {
       method: "POST",
       body: JSON.stringify({
@@ -139,7 +144,7 @@ export const AddCourse = (title, address, phone, price, categoryId) => {
       .then((response) => response.json())
       .then(() => {
         dispatch({
-          type: "course/add/success",
+          type: COURSE_ADD_SUCCESS,
           payload: {
             title,
             address,
@@ -154,12 +159,12 @@ export const AddCourse = (title, address, phone, price, categoryId) => {
 
 export const loadCourseChange = (id) => {
   return (dispatch) => {
-    dispatch({ type: "select/load/start" });
+    dispatch({ type: SELECT_LOAD_START });
     fetch(`/courses/${id}`)
       .then((response) => response.json())
       .then((json) => {
         dispatch({
-          type: "select/load/success",
+          type: SELECT_LOAD_SUCCESS,
           payload: {
             title: json.title,
             address: json.address,
@@ -205,7 +210,7 @@ export const editCourse = (title, address, phone, price, categoryId, id) => {
 export const deleteCourse = (id) => {
   return (dispatch) => {
     dispatch({
-      type: "course/delete/start",
+      type: COURSE_DELETE_START,
       payload: id,
     });
     fetch(`/courses/${id}`, {
@@ -214,7 +219,7 @@ export const deleteCourse = (id) => {
       .then((response) => response.json())
       .then(() => {
         dispatch({
-          type: "course/delete/success",
+          type: COURSE_DELETE_SUCCESS,
           payload: id,
         });
       });

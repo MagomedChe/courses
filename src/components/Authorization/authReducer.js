@@ -1,3 +1,5 @@
+import { AUTH_ERROR, AUTH_OUT, AUTH_START, AUTH_SUCCESS } from '../../redux/types'
+
 const initialState = {
   user: JSON.parse(localStorage.getItem("user")) || {},
   loadingUsers: false,
@@ -8,7 +10,7 @@ const initialState = {
 
 export const auth = (state = initialState, action) => {
   switch (action.type) {
-    case "auth/start":
+    case AUTH_START:
       return {
         ...state,
         loadingLogin: true,
@@ -16,7 +18,7 @@ export const auth = (state = initialState, action) => {
         auth: false,
       };
 
-    case "auth/success":
+    case AUTH_SUCCESS:
       return {
         ...state,
         loadingLogin: false,
@@ -24,7 +26,7 @@ export const auth = (state = initialState, action) => {
         user: action.payload,
       };
 
-    case "auth/error":
+    case AUTH_ERROR:
       return {
         ...state,
         error: true,
@@ -32,7 +34,7 @@ export const auth = (state = initialState, action) => {
         auth: false,
       };
 
-    case "auth/out":
+    case AUTH_OUT:
       return {
         ...state,
         user: {},
@@ -45,7 +47,7 @@ export const auth = (state = initialState, action) => {
 
 export const authAdmin = (login, pass, history) => {
   return (dispatch) => {
-    dispatch({ type: "auth/start" });
+    dispatch({ type: AUTH_START });
 
     fetch("/auth", {
       method: "POST",
@@ -58,19 +60,19 @@ export const authAdmin = (login, pass, history) => {
       .then((response) => response.json())
       .then((json) => {
         if (!json.token) {
-          dispatch({ type: "auth/error" });
+          dispatch({ type: AUTH_ERROR });
         } else {
           localStorage.setItem("user", JSON.stringify(json));
           history.push("/");
           dispatch({
-            type: "auth/success",
+            type: AUTH_SUCCESS,
             payload: json,
           });
         }
       })
       .catch(() => {
         dispatch({
-          type: "auth/error",
+          type: AUTH_ERROR,
         });
       });
   };
@@ -79,6 +81,6 @@ export const authAdmin = (login, pass, history) => {
 export const logout = () => {
   localStorage.removeItem("user");
   return {
-    type: "auth/out",
+    type: AUTH_OUT,
   };
 };

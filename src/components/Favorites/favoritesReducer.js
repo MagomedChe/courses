@@ -1,4 +1,4 @@
-import { ADDED_FAVORITE, DELETED_FAVORITE } from "../../redux/type";
+import { ADDED_FAVORITE, DELETED_FAVORITE } from "../../redux/types";
 
 const initState = {
   items: [],
