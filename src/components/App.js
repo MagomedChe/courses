@@ -1,11 +1,11 @@
 import "../style.css";
-import Header from "./header/Header";
+import Header from "./Header";
 import React, { useState } from "react";
-import Footer from "./footer/Footer";
-import Favorites from "./favorites/Favorites";
+import Footer from "./Footer";
+import Favorites from "./Favorites";
 import { Redirect, Route, Switch } from "react-router-dom";
-import Comments from "./comments/Comments";
-import SelectCity from "./selectCity/SelectCity";
+import Comments from "./Comments";
+import SelectCity from "./SelectCity";
 import Authorization from "./Authorization";
 import { useSelector } from "react-redux";
 import EditCourse from "./EditCourse";
@@ -41,7 +41,7 @@ function App() {
         <Route exact path={"/"}>
           <HomePage />
         </Route>
-        <Route path={"/comments"}>
+        <Route path={"/Comments"}>
           <Comments />
         </Route>
         <Route path={"/auth"}>

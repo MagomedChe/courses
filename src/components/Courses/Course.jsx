@@ -5,7 +5,7 @@ import { ADDED_FAVORITE, COURSES_SELECTED } from "../../redux/type";
 import { useDispatch, useSelector } from "react-redux";
 import { getComments } from "../../redux/actions";
 import DeletedCourse from "../DeletedCourse";
-import { addToComparison } from "../compare/actionsCompare";
+import { addToComparison } from "../Compare/actionsCompare";
 
 function Course({ item }) {
   const favorites = useSelector((state) => state.favorites.items);
@@ -33,7 +33,7 @@ function Course({ item }) {
       payload: id,
     });
     dispatch(getComments(id));
-    history.push("/comments");
+    history.push("/Comments");
   };
   const handleReduct = () => {
     history.push(`/editCourse/${item.id}`);
