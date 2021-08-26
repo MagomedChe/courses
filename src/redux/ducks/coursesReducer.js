@@ -1,18 +1,20 @@
-import {
-  ADD_NEW_COMMENT,
-  COMMENT_LOAD_START, COMMENT_LOAD_SUCCESS,
-  COURSE_ADD_START, COURSE_ADD_SUCCESS,
-  COURSE_DELETE_START, COURSE_DELETE_SUCCESS,
-  COURSES_LOAD_START, COURSES_LOAD_SUCCESS,
-  COURSES_SELECTED, FILTER_SET,
-  SELECT_LOAD_START, SELECT_LOAD_SUCCESS,
-  SELECTED_CATEGORY_LOAD_SUCCESS
-} from '../../redux/types'
+export const COURSES_LOAD_START = "Courses/load/start";
+export const COURSES_LOAD_SUCCESS = "Courses/load/success";
+export const SELECTED_CATEGORY_LOAD_START = "selected/category/load/start";
+export const SELECTED_CATEGORY_LOAD_SUCCESS = "selected/category/load/success";
+export const COURSES_SELECTED = "Courses/selected";
+export const COURSE_ADD_START = "course/add/start";
+export const COURSE_ADD_SUCCESS = "course/add/success";
+export const SELECT_LOAD_START = "select/load/start";
+export const SELECT_LOAD_SUCCESS = "select/load/success";
+export const COURSE_DELETE_START = "course/delete/start";
+export const COURSE_DELETE_SUCCESS = "course/delete/success";
+export const FILTER_SET = "filter/set";
+
+
 
 const initState = {
   courses: [],
-  comments: [],
-  commentsLoad: false,
   loading: false,
   coursesSelected: "",
   filter: "",
@@ -39,23 +41,6 @@ export const coursesReducer = (state = initState, action) => {
         ...state,
         courses: action.payload,
       };
-    case COMMENT_LOAD_START:
-      return {
-        ...state,
-        commentsLoad: true,
-      };
-    case COMMENT_LOAD_SUCCESS:
-      return {
-        ...state,
-        comments: action.payload,
-        commentsLoad: false,
-      };
-    case ADD_NEW_COMMENT:
-      return {
-        ...state,
-        comments: [...state.comments, action.payload],
-      };
-
     case COURSES_SELECTED:
       return {
         ...state,
@@ -177,6 +162,23 @@ export const loadCourseChange = (id) => {
   };
 };
 
+
+export const loadCourses = () => {
+  return (dispatch) => {
+    dispatch({
+      type: COURSES_LOAD_START,
+    });
+    fetch(`/courses`)
+      .then((response) => response.json())
+      .then((json) => {
+        dispatch({
+          type: COURSES_LOAD_SUCCESS,
+          payload: json,
+        });
+      });
+  };
+};
+
 export const editCourse = (title, address, phone, price, categoryId, id) => {
   return () => {
     fetch(`/courses/${id}`, {
@@ -206,7 +208,21 @@ export const editCourse = (title, address, phone, price, categoryId, id) => {
       });
   };
 };
-
+export const selectedCategory = (id) => {
+  return (dispatch) => {
+    dispatch({
+      type: SELECTED_CATEGORY_LOAD_START,
+    });
+    fetch(`/courses/?categoryId=${id}`)
+      .then((response) => response.json())
+      .then((json) => {
+        dispatch({
+          type: SELECTED_CATEGORY_LOAD_SUCCESS,
+          payload: json,
+        });
+      });
+  };
+};
 export const deleteCourse = (id) => {
   return (dispatch) => {
     dispatch({
@@ -225,3 +241,12 @@ export const deleteCourse = (id) => {
       });
   };
 };
+
+export const setFilterText = (text) => {
+  return {
+    type: "filter/set",
+    payload: text,
+  };
+};
+
+

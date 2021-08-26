@@ -1,4 +1,7 @@
-import { AUTH_ERROR, AUTH_OUT, AUTH_START, AUTH_SUCCESS } from '../../redux/types'
+export const AUTH_START = "auth/start";
+export const AUTH_SUCCESS = "auth/success";
+export const AUTH_ERROR = "auth/error";
+export const AUTH_OUT = "auth/out";
 
 const initialState = {
   user: JSON.parse(localStorage.getItem("user")) || {},

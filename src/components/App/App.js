@@ -1,17 +1,17 @@
-import "../style.css";
-import Header from "./Header";
+import "../../style.css";
+import Header from "../Header";
 import React, { useState } from "react";
-import Footer from "./Footer";
-import Favorites from "./Favorites";
+import Footer from "../Footer";
+import Favorites from "../Courses/Favorites";
 import { Redirect, Route, Switch } from "react-router-dom";
-import Comments from "./Comments";
-import SelectCity from "./SelectCity";
-import Authorization from "./Authorization";
-import AddCoursePage from "./AddCourses";
+import Comments from "../Comments";
+import SelectCity from "../SelectCity";
+import Authorization from "../Authorization";
+import AddCoursePage from "../Courses/AddCourses";
 import { useSelector } from "react-redux";
-import EditCourse from "./EditCourse";
+import EditCourse from "../Courses/EditCourse";
 import HomePage from "./HomePage";
-import Compare from "./Compare";
+import Compare from "../Courses/Compare";
 
 function App() {
   const [youCity, setYouCity] = useState("Грозный");

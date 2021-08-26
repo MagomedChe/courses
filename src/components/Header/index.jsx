@@ -3,8 +3,7 @@ import style from "./style.module.css";
 import { NavLink } from "react-router-dom";
 import PrimarySearchAppBar from "../Authorization/LoginProfile";
 import { useDispatch, useSelector } from "react-redux";
-import { loadCourses } from "./actionsHeader";
-import { setFilterText } from "./actionsHeader";
+import { loadCourses, setFilterText } from '../../redux/ducks/coursesReducer'
 
 function Header(props) {
   const dispatch = useDispatch();

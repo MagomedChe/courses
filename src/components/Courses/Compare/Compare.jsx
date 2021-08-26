@@ -1,10 +1,11 @@
 import React from 'react'
 import style from './style.module.css'
 import { useDispatch } from 'react-redux'
-import { COMPARE_DELETE } from '../../redux/types'
+import { COMPARE_DELETE } from '../../../redux/ducks/compareReducer'
 
 function Compare ({ item }) {
   const dispatch = useDispatch();
+
   const handleClick = (id) => {
     dispatch({ type: COMPARE_DELETE, payload: id });
   };

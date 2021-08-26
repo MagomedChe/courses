@@ -1,7 +1,7 @@
 import React from "react";
-import Intro from "./Intro";
-import Courses from "./Courses";
-import Categories from "./Categories";
+import Intro from "../Intro";
+import Courses from "../Courses";
+import Categories from "../Categories";
 
 function HomePage(props) {
   return (

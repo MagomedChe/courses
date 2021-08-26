@@ -1,29 +1,40 @@
-import React, { useState } from "react";
-import styles from "./styles.module.css";
+import React, { useEffect, useState } from "react";
+import styles from "../AddCourses/styles.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { AddCourse } from "../Courses/coursesReducer";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
+import { editCourse } from "../../../redux/ducks/coursesReducer";
 
-function AddCoursePage(props) {
-  const loading = useSelector((state) => state.courses.loading);
-
+function EditCourse(props) {
   const dispatch = useDispatch();
-  const history = useHistory();
-  const [title, setTitle] = useState("");
-  const [address, setAddress] = useState("");
-  const [phone, setPhone] = useState("");
-  const [price, setPrice] = useState("");
-  const [categoryId, setCategoryId] = useState("");
+  const id = parseInt(useParams().id);
 
-  const handleAdd = () => {
-    dispatch(AddCourse(title, address, phone, price, categoryId, history));
+  const courses = useSelector((state) => state.courses.courses);
+  const course = courses.find((course) => course.id === id);
+
+  const [title, setTitle] = useState(`${course.title}`);
+  const [address, setAddress] = useState(`${course.address}`);
+  const [phone, setPhone] = useState(`${course.phone}`);
+  const [price, setPrice] = useState(`${course.price}`);
+  const [categoryId, setCategoryId] = useState(`${course.categoryId}`);
+  const history = useHistory();
+
+
+  const loading = useSelector((state) => state.courses.selectedLoading);
+
+  const handleEdit = (title, address, phone, price, categoryId, id) => {
+    dispatch(editCourse(title, address, phone, price, categoryId, id));
     history.push("/");
+    setTitle("");
+    setAddress("");
+    setPhone("");
+    setPrice("");
+    setCategoryId("");
   };
 
   return (
     <div className={styles.add_course_page}>
       {loading ? (
-        <div>wait</div>
+        <div>Идет загрузка ...</div>
       ) : (
         <div className={styles.add_course_page_box}>
           <div className={styles.add_course_page_block}>
@@ -64,7 +75,7 @@ function AddCoursePage(props) {
               name="categoryId"
               onChange={(e) => setCategoryId(e.target.value)}
             >
-              <option defaultValue>Выберите категорию</option>
+              <option value>Выберите категорию</option>
               <option value={1}>Программирование</option>
               <option value={2}>Языковые курсы</option>
               <option value={3}>Веб-дизайнер</option>
@@ -72,7 +83,13 @@ function AddCoursePage(props) {
             </select>
           </div>
           <div>
-            <button onClick={handleAdd}>Добавить</button>
+            <button
+              onClick={() =>
+                handleEdit(title, address, phone, price, categoryId, id)
+              }
+            >
+              Сохранить
+            </button>
           </div>
         </div>
       )}
@@ -80,4 +97,4 @@ function AddCoursePage(props) {
   );
 }
 
-export default AddCoursePage;
+export default EditCourse;

@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCategories } from "./actionsCourses";
-import { loadCourses } from "./actionsCourses";
 import style from "./courses.module.css";
 import Course from "./Course";
+import { getCategories } from '../../redux/ducks/categoriesReducer'
+import { loadCourses } from '../../redux/ducks/coursesReducer'
 
-function Courses(props) {
+function Courses() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadCourses());
@@ -18,7 +18,6 @@ function Courses(props) {
   const filteredCourses = courses.filter(
     (course) => course.title.indexOf(filter) > -1
   );
-
   return (
     <div className={style.courses}>
       <div className={style.courses_title}>Список курсов</div>

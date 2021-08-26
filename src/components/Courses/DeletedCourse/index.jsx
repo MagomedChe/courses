@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteCourse } from "../Courses/coursesReducer";
+import { deleteCourse } from "../../../redux/ducks/coursesReducer";
 
 function DeletedCourse({ item }) {
   const dispatch = useDispatch();

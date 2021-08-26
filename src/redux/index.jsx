@@ -1,10 +1,11 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import thunk from "redux-thunk";
-import { coursesReducer } from "../components/Courses/coursesReducer";
-import { categoriesReducer } from "../components/Categories/categoriesReducer";
-import { favoritesReducer } from "../components/Favorites/favoritesReducer";
-import { auth } from  '../components/Authorization/authReducer'
-import { compare } from "../components/Compare/compareReducer";
+import { coursesReducer } from "./ducks/coursesReducer";
+import { categoriesReducer } from "./ducks/categoriesReducer";
+import { favoritesReducer } from "./ducks/favoritesReducer";
+import { auth } from './ducks/authReducer'
+import { compare } from "./ducks/compareReducer";
+import { commentsReducer } from './ducks/commentsReducer'
 const { createLogger } = require("redux-logger");
 const logger = createLogger({
   diff: true,
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   favorites: favoritesReducer,
   compare: compare,
   auth: auth,
+  comments: commentsReducer,
 });
 
 let preloadedState;

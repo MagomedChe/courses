@@ -1,11 +1,12 @@
 import React from "react";
 import style from "./courses.module.css";
 import { useHistory } from "react-router-dom";
-import { ADDED_FAVORITE, COURSES_SELECTED } from "../../redux/types";
 import { useDispatch, useSelector } from "react-redux";
 import { getComments } from "../../redux/actions";
-import DeletedCourse from "../DeletedCourse";
-import { addToComparison } from "../Compare/actionsCompare";
+import DeletedCourse from "./DeletedCourse";
+import { addToComparison } from '../../redux/ducks/compareReducer'
+import { COURSES_SELECTED } from '../../redux/ducks/coursesReducer'
+import { ADDED_FAVORITE } from '../../redux/ducks/favoritesReducer'
 
 function Course({ item }) {
   const favorites = useSelector((state) => state.favorites.items);

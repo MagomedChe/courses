@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import style from "./style.module.css";
 import { useDispatch } from "react-redux";
-import { addComment } from "../../redux/actions";
+import { addComment } from "../../../redux/actions";
 
 function AddComment(props) {
   const dispatch = useDispatch();
