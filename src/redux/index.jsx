@@ -3,9 +3,9 @@ import thunk from "redux-thunk";
 import { coursesReducer } from "./ducks/coursesReducer";
 import { categoriesReducer } from "./ducks/categoriesReducer";
 import { favoritesReducer } from "./ducks/favoritesReducer";
-import { auth } from './ducks/authReducer'
+import { auth } from "./ducks/authReducer";
 import { compare } from "./ducks/compareReducer";
-import { commentsReducer } from './ducks/commentsReducer'
+import { commentsReducer } from "./ducks/commentsReducer";
 const { createLogger } = require("redux-logger");
 const logger = createLogger({
   diff: true,
@@ -34,11 +34,7 @@ if (localStorage.getItem("compare") !== null) {
   };
 }
 
-export const store = createStore(
-  rootReducer,
-  preloadedState,
-  applyMiddleware(thunk, logger)
-);
+export const store = createStore(rootReducer, preloadedState, applyMiddleware(thunk, logger));
 
 store.subscribe(() => {
   localStorage.setItem("favorites", JSON.stringify(store.getState().favorites));

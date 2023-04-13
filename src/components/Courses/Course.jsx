@@ -2,11 +2,11 @@ import React from "react";
 import style from "./courses.module.css";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getComments } from "../../redux/actions";
+import { getComments } from "../../redux/ducks/commentsReducer";
 import DeletedCourse from "./DeletedCourse";
-import { addToComparison } from '../../redux/ducks/compareReducer'
-import { COURSES_SELECTED } from '../../redux/ducks/coursesReducer'
-import { ADDED_FAVORITE } from '../../redux/ducks/favoritesReducer'
+import { addToComparison } from "../../redux/ducks/compareReducer";
+import { COURSES_SELECTED } from "../../redux/ducks/coursesReducer";
+import { ADDED_FAVORITE } from "../../redux/ducks/favoritesReducer";
 
 function Course({ item }) {
   const favorites = useSelector((state) => state.favorites.items);
@@ -54,9 +54,7 @@ function Course({ item }) {
           </div>
         )}
         <button onClick={() => handleFavorites(item)}>
-          {favorites.find((elment) => elment.id === item.id)
-            ? "В избранном"
-            : "В избранное"}
+          {favorites.find((elment) => elment.id === item.id) ? "В избранном" : "В избранное"}
         </button>
         <button onClick={() => handleCompare(item.id)}>Сравнить</button>
         <button onClick={() => handleClick(item.id)}>Отзывы</button>

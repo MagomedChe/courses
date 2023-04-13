@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./style.module.css";
 import { useDispatch } from "react-redux";
-import { selectedCategory } from "./actionsCategories";
+import { selectedCategory } from "../../redux/ducks/coursesReducer";
 
 function Category({ category }) {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ function Category({ category }) {
   return (
     <div className={style.category} key={category.id}>
       <div onClick={() => handleCategory(category.id)}>
-        <img className={style.category_image} src={category.image} alt="" />
+        <img className={style.category_image} src={category.image} alt='' />
       </div>
       <div className={style.category_title}>{category.title}</div>
     </div>

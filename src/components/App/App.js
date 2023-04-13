@@ -22,16 +22,16 @@ function App() {
   if (token) {
     addCourse = (
       <Switch>
-        <Route path="/addCourse">
+        <Route path='/addCourse'>
           <AddCoursePage />
         </Route>
-        <Route path="/editCourse/:id">
+        <Route path='/editCourse/:id'>
           <EditCourse />
         </Route>
       </Switch>
     );
   } else {
-    addCourse = <Redirect to="/" />;
+    addCourse = <Redirect to='/' />;
   }
 
   return (
@@ -50,10 +50,10 @@ function App() {
         <Route path={"/city"}>
           <SelectCity setYouCity={setYouCity} />
         </Route>
-        <Route path="/favorites">
+        <Route path='/favorites'>
           <Favorites />
         </Route>
-        <Route path="/compare">
+        <Route path='/compare'>
           <Compare />
         </Route>
         {addCourse}

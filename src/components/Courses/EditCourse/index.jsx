@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "../AddCourses/styles.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
@@ -17,7 +17,6 @@ function EditCourse(props) {
   const [price, setPrice] = useState(`${course.price}`);
   const [categoryId, setCategoryId] = useState(`${course.categoryId}`);
   const history = useHistory();
-
 
   const loading = useSelector((state) => state.courses.selectedLoading);
 
@@ -39,42 +38,23 @@ function EditCourse(props) {
         <div className={styles.add_course_page_box}>
           <div className={styles.add_course_page_block}>
             <span>Название курса</span>
-            <input
-              type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
+            <input type='text' value={title} onChange={(e) => setTitle(e.target.value)} />
           </div>
           <div className={styles.add_course_page_block}>
             <span>Адрес</span>
-            <input
-              type="text"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-            />
+            <input type='text' value={address} onChange={(e) => setAddress(e.target.value)} />
           </div>
           <div className={styles.add_course_page_block}>
             <span>Телефон</span>
-            <input
-              type="text"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-            />
+            <input type='text' value={phone} onChange={(e) => setPhone(e.target.value)} />
           </div>
           <div className={styles.add_course_page_block}>
             <span>Цена</span>
-            <input
-              type="text"
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
-            />
+            <input type='text' value={price} onChange={(e) => setPrice(e.target.value)} />
           </div>
           <div className={styles.add_course_page_block}>
             <span>Категория</span>
-            <select
-              name="categoryId"
-              onChange={(e) => setCategoryId(e.target.value)}
-            >
+            <select name='categoryId' onChange={(e) => setCategoryId(e.target.value)}>
               <option value>Выберите категорию</option>
               <option value={1}>Программирование</option>
               <option value={2}>Языковые курсы</option>
@@ -83,13 +63,7 @@ function EditCourse(props) {
             </select>
           </div>
           <div>
-            <button
-              onClick={() =>
-                handleEdit(title, address, phone, price, categoryId, id)
-              }
-            >
-              Сохранить
-            </button>
+            <button onClick={() => handleEdit(title, address, phone, price, categoryId, id)}>Сохранить</button>
           </div>
         </div>
       )}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import style from "./style.module.css";
 import { useDispatch } from "react-redux";
-import { addComment } from "../../../redux/actions";
+import { addComment } from "../../../redux/ducks/commentsReducer";
 
 function AddComment(props) {
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ function AddComment(props) {
   return (
     <div className={style.comment_add_panel}>
       <input
-        type="text"
+        type='text'
         placeholder={"Email"}
         value={email}
         onChange={(e) => {
@@ -27,7 +27,7 @@ function AddComment(props) {
         }}
       />
       <input
-        type="text"
+        type='text'
         placeholder={"Text"}
         value={text}
         onChange={(e) => {

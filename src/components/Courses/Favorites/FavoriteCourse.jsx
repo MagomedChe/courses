@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./favorite.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteFavorite } from "./actionsFavorites";
+import { deleteFavorite } from "../../../redux/ducks/favoritesReducer";
 
 function FavoriteCourse({ item }) {
   const favorite = useSelector((state) => state.favorites.items);

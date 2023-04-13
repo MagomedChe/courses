@@ -1,7 +1,6 @@
 export const DELETED_FAVORITE = "deleted/favorite";
 export const ADDED_FAVORITE = "added/favorite";
 
-
 const initState = {
   items: [],
   loading: false,

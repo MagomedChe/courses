@@ -1,15 +1,14 @@
 export const COMMENT_LOAD_START = "comment/load/start";
 export const COMMENT_LOAD_SUCCESS = "comment/load/success";
-export const ADD_NEW_COMMENT ="add/new/comment";
+export const ADD_NEW_COMMENT = "add/new/comment";
 
-
-const initState ={
+const initialState = {
   comments: [],
   commentsLoad: false,
-}
+};
 
-export const commentsReducer = (state = initState, action) =>{
-  switch (action.type){
+export const commentsReducer = (state = initialState, action) => {
+  switch (action.type) {
     case COMMENT_LOAD_START:
       return {
         ...state,
@@ -26,8 +25,11 @@ export const commentsReducer = (state = initState, action) =>{
         ...state,
         comments: [...state.comments, action.payload],
       };
+
+    default:
+      return state;
   }
-}
+};
 
 export const addComment = (email, text, id) => {
   return (dispatch) => {

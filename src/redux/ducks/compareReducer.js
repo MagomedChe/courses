@@ -1,5 +1,5 @@
-export const COMPARE_LOAD_START ="compare/load/start";
-export const COMPARE_LOAD_SUCCESS ="compare/load/success";
+export const COMPARE_LOAD_START = "compare/load/start";
+export const COMPARE_LOAD_SUCCESS = "compare/load/success";
 export const COMPARE_DELETE = "compare/delete";
 
 const intState = {
@@ -48,4 +48,3 @@ export const addToComparison = (id) => {
       });
   };
 };
-
